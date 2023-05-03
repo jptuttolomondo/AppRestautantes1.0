@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
-
+import {Route,Routes} from 'react-router-dom'
+import { Provider } from 'react-redux';
+import {store }from './store/index'
+import { LandingPage } from './components/landPage/landPage';
+import  {Home}from './components/home/home'
+import { Comanda } from './components/comanda';
+import NotFound  from'./components/notfound/404'
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Provider store={store}>
+     <Routes> 
+      <Route path="*" element={<LandingPage/>} > </Route> 
+      <Route path="/notfound" element={<NotFound/>} > </Route> 
+      <Route path="/comanda" element={<Comanda/>} > </Route> 
+    <Route exact path="/home" element={<Home/>} > </Route> 
+     </Routes>
+     </Provider>
     </div>
   );
+ 
 }
 
 export default App;
