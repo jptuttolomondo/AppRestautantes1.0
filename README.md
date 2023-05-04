@@ -32,12 +32,24 @@ Node- websockets-
 
 Tendrá las siguientes rutas paara la gestion y presentacion de cada operación:
 ## GET
+/get comandas
+/get usuarios
+/get productos
 
 ## POST
+/post comanda
+/post usuario
+/post producto
 
 ## PUT  
+/put comanda
+/put usuario
+/put producto
 
 ## DELETE
+/delete comanda
+/delete usuario
+/delete producto
 
 # dataBase
 La base de datos será NoSql, administrado con MongoDb, donde cada comanda sera un documento en BSON y tendrá la esructura siguiente:
@@ -83,9 +95,22 @@ password:string,
 //como vincular a un mozo con una caja??
 
 ]
+document: productos
+[
+{ idProducto:uuid,
+    nombre:string,
+descripcion corta:  string,
+descripcion larga: string,
+link imagen:string,
+stock actual:number,
+stock de reposición:number,
+},{}...{},
+
+]
+
 
 # Users
 Existirán tres categorias de usuarios.
-- Mozo:
+- Mozo:post/put de comandas
 - Cocinero:
 - Admin:
