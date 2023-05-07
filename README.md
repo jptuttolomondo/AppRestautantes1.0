@@ -85,7 +85,7 @@ gastos diarios:[
     total gastos diarios:number ],
     caja final:number
 ]
-document: usuarios
+collection: users
 [
 nombre:string,
 dni:number,
@@ -95,7 +95,7 @@ password:string,
 //como vincular a un mozo con una caja??
 
 ]
-document: productos
+collection: products
 [
 { idProducto:uuid,
     nombre:string,

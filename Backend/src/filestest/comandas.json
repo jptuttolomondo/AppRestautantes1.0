@@ -1,0 +1,39 @@
+[
+  {
+          "fecha":"date",
+          "hora":"time",
+          "mesa":"char",
+          "mozo":"string",
+  "total":4500,
+  "estado": "tipo",
+  "pedido":[
+      {"cantidad":5, 
+      "nombreProducto":"cafe con leche",
+      "precioUnitario":200,
+      "subtotal":1000    
+       },{
+        "cantidad":10, 
+      "nombreProducto":"medialunas",
+      "precioUnitario":200,
+      "subtotal":2000 
+       },
+       {     "cantidad":3, 
+       "nombreProducto":"coca cola",
+       "precioUnitario":500,
+       "subtotal":1500 }
+
+      ]
+      },
+  {},{}..{},
+  caja inicial:number,
+  total diario efectivo:Number,
+  total diario tarjetas:Number,
+  total diario transferencias:Number,
+  total diario:Number,
+  gastos diarios:[
+      {descripcion del gasto:string,
+      monto: number,
+      usuario:user},{}...{},
+      total gastos diarios:number ],
+      caja final:number
+  ]

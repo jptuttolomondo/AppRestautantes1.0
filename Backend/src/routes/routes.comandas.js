@@ -1,7 +1,7 @@
 import { Router } from "express";
 const router = Router();
 
-router.get("/comandas", async (req, res) => {
+router.get("/comandas", async (req, res) => { 
   res.send("get comandas");
 });
 router.post("/comanda", async (req, res) => {

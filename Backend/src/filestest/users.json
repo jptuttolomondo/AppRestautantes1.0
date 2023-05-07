@@ -1,0 +1,27 @@
+
+[{
+"nombre":"juan",
+"dni":20465547,
+"domicilio": "parana 365",
+"username":"juanito",
+"password":"12345",
+"fechaIngreso":"mar 21 2023",
+"diaDePago":11
+},
+{"nombre":"ceci",
+"dni":2244557,
+"domicilio": "santa fe 1588",
+"username":"cecilia",
+"password":"13dqd",
+"fechaIngreso":"mar 21 2023",
+"diaDePago":11},
+
+{"nombre":"maggie",
+"dni":561555,
+"domicilio": "las rosas 488",
+"username":"magdalena",
+"password":"13dq442d",
+"fechaIngreso":"may 2 2023",
+"diaDePago":1
+}
+]

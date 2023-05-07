@@ -1,6 +1,6 @@
 import { Router } from "express";
 const router = Router();
-
+import { productModel } from "./../models/products.model.js";
 router.get("/products", async (req, res) => {
   res.send("get products");
 });
