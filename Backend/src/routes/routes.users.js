@@ -3,9 +3,9 @@ const router = Router();
 import { userModel } from "./../models/users.model.js";
 router.get("/users", async (req, res) => {
   try {
-    const users = await userModel.find();
-    const userFinal = users.filter((user) => user.deleted === false);
-    res.send({ result: "success", payload: userFinal });
+    const users = await userModel.find({deleted:false});
+    //const userFinal = users.filter((user) => user.deleted === false);
+    res.send({ result: "success", payload: users });
   } catch (error) {
     console.error(error);
   }

@@ -14,6 +14,7 @@ required: true },
 description:{ type: String, required: true },
 precio:{ type:Number, required: true },
 stock:{ type:Number, required: true },
+deleted:{ type:Boolean, required: true,default:false},
   }
 )
 export const productModel = mongoose.model(productCollections, productSchema);

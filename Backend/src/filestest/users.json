@@ -1,27 +1,4 @@
 
-[{
-"nombre":"juan",
-"dni":20465547,
-"domicilio": "parana 365",
-"username":"juanito",
-"password":"12345",
-"fechaIngreso":"mar 21 2023",
-"diaDePago":11
-},
-{"nombre":"ceci",
-"dni":2244557,
-"domicilio": "santa fe 1588",
-"username":"cecilia",
-"password":"13dqd",
-"fechaIngreso":"mar 21 2023",
-"diaDePago":11},
-
-{"nombre":"maggie",
-"dni":561555,
-"domicilio": "las rosas 488",
-"username":"magdalena",
-"password":"13dq442d",
-"fechaIngreso":"may 2 2023",
-"diaDePago":1
-}
+[{"_id":{"$oid":"6456e299771cf3af7ab16ccf"},"firstName":"juan pablo","lastName":"tuttolomondo","dni":{"$numberInt":"24645889"},"address":"Jujuy 393","username":"nikis","password":"123e55","inputDate":{"$date":{"$numberLong":"1653447600000"}},"payDay":{"$numberInt":"16"},"deleted":false,"createdAt":{"$date":{"$numberLong":"1683415705774"}},"updatedAt":{"$date":{"$numberLong":"1683415705774"}},"__v":{"$numberInt":"0"}},
+{"_id":{"$oid":"6456e1f8771cf3af7ab16ccc"},"firstName":"MicaelaChauchincito25","lastName":"tuttolomondo","dni":{"$numberInt":"24645889"},"address":"Jujuy 393","username":"nikis","password":"123e55","inputDate":{"$date":{"$numberLong":"1653447600000"}},"payDay":{"$numberInt":"16"},"deleted":false,"createdAt":{"$date":{"$numberLong":"1683415544056"}},"updatedAt":{"$date":{"$numberLong":"1683415544056"}},"__v":{"$numberInt":"0"}}
 ]

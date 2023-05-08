@@ -3,6 +3,7 @@ import mongoose from'mongoose';
 import  routerComandas from './routes/routes.comandas.js'
 import  routerUsers from './routes/routes.users.js'
 import  routerProducts from './routes/routes.products.js'
+import  routerItems from './routes/routes.items.js'
 //import  './db.js'
 const app = express()  
 app.use(express.json())
@@ -10,6 +11,7 @@ app.use(express.urlencoded())
 app.use('/',routerComandas)
 app.use('/',routerUsers)
 app.use('/',routerProducts)
+app.use('/',routerItems)
 
 const server = app.listen(8080,() => {console.log('server connected at 8080')})
 

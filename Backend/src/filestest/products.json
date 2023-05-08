@@ -1,0 +1,7 @@
+[
+    {"_id":{"$oid":"6457ead845bd9eb1857ac6c6"},"productName":"Café express","image":"kfjhll","category":"Desayunos y Meriendas","description":"Café express pequeño/ americano/cortado","precio":{"$numberInt":"500"},"stock":{"$numberInt":"100"},"deleted":false,"__v":{"$numberInt":"0"}},
+    {"_id":{"$oid":"6457fcc05683d733735329fd"},"productName":"Café con leche","image":"kfjhll","category":"Desayunos y Meriendas","description":"Café con leche en taza grande","precio":{"$numberInt":"800"},"stock":{"$numberInt":"100"},"deleted":false,"__v":{"$numberInt":"0"}},
+    {"_id":{"$oid":"6457ff181298c5dd6ee3713c"},"productName":"Café express54","image":"kfjhll","category":"Desayunos y Meriendas","description":"Café express pequeño/ americano/cortado","precio":{"$numberInt":"500"},"stock":{"$numberInt":"100"},"deleted":true,"__v":{"$numberInt":"0"}}
+
+
+]
