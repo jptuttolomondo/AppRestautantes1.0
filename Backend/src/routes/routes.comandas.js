@@ -9,9 +9,8 @@ import { getAllComandas } from "../controllers/comandasControllers.js";
 router.get("/comandas", async (req, res) => {
   try {
     const comandasGet = await comandaModel.find({ deleted: false });
-    //const prueba=await comandaModel.populate('Items')
-    //console.log(prueba)
-    let salidaComanda = await getAllComandas(comandasGet)
+
+    let salidaComanda = await getAllComandas(comandasGet);
     res.status(200).send({ result: "success", payload: salidaComanda });
   } catch (error) {
     console.error(error);
@@ -31,13 +30,13 @@ router.get("/comanda/:uuid", async (req, res) => {
   }
 });
 
- 
-
 router.post("/comanda", async (req, res) => {
-  let{ date, mesa, estado, mozo,items,total,deleted} = req.body;
+  let { date, mesa, estado, mozo, items, total, deleted } = req.body;
   try {
-    //console.log(req.body)
+    //se pasa pod body id de moxo, id de producto, array de productos
 
+    //total y subtotales ya vienen calculados desde frontend
+    //date viene de frontend
     const comandaSave = await comandaModel.create({
       date,
       mesa,
@@ -46,20 +45,20 @@ router.post("/comanda", async (req, res) => {
       total,
       deleted,
     });
-for (let i = 0; i < items.length; i++){
-  const cantidad=items[i].cantidad
-  const producto=items[i].producto
-  const subtotalItem=items[i].subtotalItem
-  const deleted=false
-  let comanda=comandaSave._id
-
-    const itemSaved=await itemModel.create({
-
-      cantidad,producto,subtotalItem,deleted,comanda
-    })
-    console.log('itemSaved',itemSaved)
-  }
-    
+    for (let i = 0; i < items.length; i++) {
+      const cantidad = items[i].cantidad;
+      const producto = items[i].producto;
+      const subtotalItem = items[i].subtotalItem;
+      const deleted = false;
+      let comanda = comandaSave._id;
+      await itemModel.create({
+        cantidad,
+        producto,
+        subtotalItem,
+        deleted,
+        comanda,
+      });
+    }
 
     res.status(200).send({ result: "success", payload: comandaSave });
   } catch (error) {
@@ -67,22 +66,66 @@ for (let i = 0; i < items.length; i++){
   }
 });
 
-router.put("/comanda", async (req, res) => {
-  res.send("put comanda");
+router.put("/comanda/:uuid", async (req, res) => {
+  const { uuid } = req.params;
+  const comandaToreplace = req.body;
+  try {
+    if (
+      !comandaToreplace.mesa ||
+      !comandaToreplace.estado ||
+      !comandaToreplace.mozo ||
+      !comandaToreplace.items ||
+      !comandaToreplace.total
+      //!comandaToreplace.deleted
+    )
+      res.status(400).send({ error: "incomplete data" });
+    let comandaToUpdate = await comandaModel.updateOne(
+      { _id: uuid },
+      comandaToreplace
+    );
+
+    await itemModel.deleteMany({ comanda: uuid });
+
+    for (let i = 0; i < comandaToreplace.items.length; i++) {
+      const cantidad = comandaToreplace.items[i].cantidad;
+      const producto = comandaToreplace.items[i].producto;
+      const subtotalItem = comandaToreplace.items[i].subtotalItem;
+      const deleted = comandaToreplace.items[i].deleted;
+      const comanda = uuid;
+
+      await itemModel.create({
+        cantidad,
+        producto,
+        subtotalItem,
+        deleted,
+        comanda,
+      });
+    }
+
+    res.status(200).send({ result: "success", payload: comandaToUpdate });
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 router.delete("/comanda/:uuid", async (req, res) => {
   const { uuid } = req.params;
 
   try {
-    const comandaToLogicalDelete = await comandaModel.findById(uuid);
+    const comandaToLogicalDelete = await comandaModel
+      .findById(uuid)
+      .populate("items");
+    console.log(comandaToLogicalDelete);
     comandaToLogicalDelete.deleted = true;
-    const comanda = await userModel.updateOne({ _id: uuid }, comandaToLogicalDelete);
+    const comanda = await userModel.updateOne(
+      { _id: uuid },
+      comandaToLogicalDelete
+    );
+    const itemDeleted = await itemModel.findById;
     res.status(200).send({ result: "success", payload: comanda });
   } catch (error) {
     console.error(error);
   }
-
 });
 
 export default router;
