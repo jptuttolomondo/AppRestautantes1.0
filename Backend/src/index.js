@@ -20,4 +20,4 @@ try {
 mongoose.connect('mongodb+srv://adminappresto:Goring2311*@clusterappresto.ud9f7tf.mongodb.net/?retryWrites=true&w=majority')
 console.log('db connection established')
 }
-catch (error) {console.error(error)}
+catch (error) {console.error(error)} 

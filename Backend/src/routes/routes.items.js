@@ -16,7 +16,7 @@ const {cantidad,producto,subtotalItem,deleted}=req.body
     if (!cantidad||!producto||!subtotalItem)res.status(400).send({ error: "datos incompletos" });
   
     const item = await itemModel.create({
-        cantidad,producto,subtotalItem,deleted 
+        cantidad,producto,subtotalItem,deleted,comanda
     });
 
     res.status(200).send({ result: "success", payload: item });
