@@ -16,7 +16,7 @@ app.use('/',routerItems)
 const server = app.listen(8080,() => {console.log('server connected at 8080')})
 
 
-try {
+try {//ver de poner el nombre de la base de datos, asi no usa test en atlas
 mongoose.connect('mongodb+srv://adminappresto:Goring2311*@clusterappresto.ud9f7tf.mongodb.net/?retryWrites=true&w=majority')
 console.log('db connection established')
 }

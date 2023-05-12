@@ -13,6 +13,6 @@ export async function getAllComandas(comandasGet) {
       items: await getItems(comandasGet[i]),
     };
     salidaComanda.push(salida);
-  }
+  }//hay que pushear en comandas.items
   return salidaComanda;
 }

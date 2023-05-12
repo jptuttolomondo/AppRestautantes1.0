@@ -9,9 +9,20 @@ import { getAllComandas } from "../controllers/comandasControllers.js";
 router.get("/comandas", async (req, res) => {
   try {
     const comandasGet = await comandaModel.find({ deleted: false });
-
-    let salidaComanda = await getAllComandas(comandasGet);
-    res.status(200).send({ result: "success", payload: salidaComanda });
+   
+//     for (let i = 0; i < comandasGet.length; i++) { 
+//       const itemsGet=await itemModel.find({comanda:comandasGet[i]._id });
+//        console.log(itemsGet)
+//        for(let j=0; j<itemsGet.length; j++) {
+//        comandasGet[i].items.push({item:itemsGet[j]._id})
+//        }
+//        console.log('comandasGet',comandasGet[i])
+// const result=await comandaModel.updateOne({_id:comandasGet[i]._id},comandasGet[i]) //
+// console.log(result)
+   // }
+ 
+    //let salidaComanda = await getAllComandas(comandasGet);
+    res.status(200).send({ result: "success", payload: comandasGet });
   } catch (error) {
     console.error(error);
   }
@@ -20,11 +31,12 @@ router.get("/comandas", async (req, res) => {
 router.get("/comanda/:uuid", async (req, res) => {
   try {
     let { uuid } = req.params;
-    const comandasGet = await comandaModel.findById(uuid);
-    let salecomanda = [];
-    salecomanda.push(comandasGet);
-    let salidaComanda = await getAllComandas(salecomanda);
-    res.status(200).send({ result: "success", payload: salidaComanda });
+    const comandasGet = await comandaModel.find({_id:uuid});
+    //let salecomanda = [];
+    //salecomanda.push(comandasGet);
+    //let salidaComanda = await getAllComandas(salecomanda);
+   // console.log(JSON.stringify(comandasGet,null,'\t'))
+    res.status(200).send({ result: "success", payload: comandasGet });
   } catch (error) {
     console.error(error);
   }
@@ -45,13 +57,15 @@ router.post("/comanda", async (req, res) => {
       total,
       deleted,
     });
+
+    //console.log('comandaSave',comandaSave);
     for (let i = 0; i < items.length; i++) {
       const cantidad = items[i].cantidad;
       const producto = items[i].producto;
       const subtotalItem = items[i].subtotalItem;
       const deleted = false;
       let comanda = comandaSave._id;
-      await itemModel.create({
+      let resultComanda=await itemModel.create({
         cantidad,
         producto,
         subtotalItem,
@@ -59,6 +73,17 @@ router.post("/comanda", async (req, res) => {
         comanda,
       });
     }
+
+   // const comandasGet = await comandaModel.findById(comandaSave._id);
+   //console.log('comandaSave',comandaSave);
+
+      const itemsGet=await itemModel.find({comanda:comandaSave._id });
+      //console.log('itemsGet',itemsGet);
+       for(let j=0; j<itemsGet.length; j++) {
+       comandaSave.items.push({item:itemsGet[j]._id})
+       }
+      // console.log('comandaSalida',comandaSave)
+const result=await comandaModel.updateOne({_id:comandaSave._id},comandaSave) 
 
     res.status(200).send({ result: "success", payload: comandaSave });
   } catch (error) {
@@ -115,13 +140,18 @@ router.delete("/comanda/:uuid", async (req, res) => {
     const comandaToLogicalDelete = await comandaModel
       .findById(uuid)
       .populate("items");
-    console.log(comandaToLogicalDelete);
+    //console.log(comandaToLogicalDelete);
     comandaToLogicalDelete.deleted = true;
     const comanda = await userModel.updateOne(
       { _id: uuid },
       comandaToLogicalDelete
     );
-    const itemDeleted = await itemModel.findById;
+    const itemsToDelete = await itemModel.find({comanda:uuid});
+    console.log(itemsToDelete)
+const itemsDeleted=await itemModel.updateMany({comanda:uuid},{deleted:true})
+
+
+
     res.status(200).send({ result: "success", payload: comanda });
   } catch (error) {
     console.error(error);
