@@ -10,6 +10,24 @@ router.get("/users", async (req, res) => {
     console.error(error);
   }
 });
+
+
+
+
+router.get("/users/:uuid", async (req, res) => {
+  try {
+    const {uuid} = req.params
+    const user = await userModel.find({_id:uuid});
+    console.log(user);
+    //const userFinal = users.filter((user) => user.deleted === false);
+    res.send({ result: "success", payload: user });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+
+
 router.post("/user", async (req, res) => {
   const {
     firstName,
@@ -75,5 +93,9 @@ router.delete("/users/:uuid", async (req, res) => {
     console.error(error);
   }
 });
+
+
+
+
 
 export default router;

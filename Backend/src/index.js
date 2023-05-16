@@ -4,14 +4,19 @@ import  routerComandas from './routes/routes.comandas.js'
 import  routerUsers from './routes/routes.users.js'
 import  routerProducts from './routes/routes.products.js'
 import  routerItems from './routes/routes.items.js'
-//import  './db.js'
+import routerMesas from './routes/routes.mesas.js'
+
+import cors from 'cors';
+
 const app = express()  
+app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded())
 app.use('/',routerComandas)
-app.use('/',routerUsers)
+app.use('/',routerUsers) 
 app.use('/',routerProducts)
 app.use('/',routerItems)
+app.use('/',routerMesas)
 
 const server = app.listen(8080,() => {console.log('server connected at 8080')})
 

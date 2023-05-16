@@ -32,7 +32,5 @@ deleted:{type:Boolean,required: true, default: false},
 ComandaSchema.pre('find',function(){
   this.populate('items.item')
 })
-ComandaSchema.pre('findById',function(){
-  this.populate('items.item')
-})
+
 export const comandaModel = mongoose.model(ComandaCollections, ComandaSchema);
