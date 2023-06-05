@@ -26,7 +26,7 @@ router.get("/comanda/:uuid", async (req, res) => {
     console.error(error);
   }
 });
-
+ 
 router.post("/comanda", async (req, res) => {
   let { date, mesa, estado, mozo, items, total, deleted } = req.body;
   try {

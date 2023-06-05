@@ -10,15 +10,18 @@ res.status(200).send({result:'success',payload:items})
 
 })
 router.post("/item", async (req, res) => {
-const {cantidad,producto,subtotalItem,deleted}=req.body
+const {cantidad,producto,subtotalItem}=req.body[0]
 
   try {
+     
     if (!cantidad||!producto||!subtotalItem)res.status(400).send({ error: "datos incompletos" });
-  
+ 
+  let comanda=''
+  let deleted=false
     const item = await itemModel.create({
         cantidad,producto,subtotalItem,deleted,comanda
     });
-
+ 
     res.status(200).send({ result: "success", payload: item });
   } catch (error) {
     console.error(error); 

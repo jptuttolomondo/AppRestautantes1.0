@@ -9,11 +9,13 @@ const userSchema = new Schema(
     address:{ type: String, required: true},
     username: { type: String, required: true},
     password: { type: String, required: true},
+
 inputDate: { type: Date, required: true},
+role:{type:String,enum:['ADMIN','USER']},
 payDay: { type: Number, required: true},
 deleted:{type:Boolean,required: true, default: false},
-  },
-  { timestamps: true }
+  }, 
+  { timestamps: true } 
 );
  
 export const userModel = mongoose.model(userCollections, userSchema);
