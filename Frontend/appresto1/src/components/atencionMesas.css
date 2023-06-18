@@ -1,0 +1,530 @@
+.Mesas-body {
+    text-align: center;
+    position:relative;
+    width: 360px;
+    height: 640px;
+ 
+    
+    background: linear-gradient(163.28deg, rgba(206, 225, 236, 0.96) 2.17%, rgba(219, 83, 255, 0.96) 96.14%);
+    border-radius: 24px;
+  }
+  .Mesas-titulo{
+    position: absolute;
+  left: -18.88%;
+  right: -18.37%;
+  top: 2%;
+  bottom: -340%;
+  
+  font-family: 'Comic Sans MS';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  text-align: center;
+  letter-spacing: 0.055em;
+  color: #000000;
+  display: block;
+  }
+  .Mesas-subtitulo{
+   
+  position: absolute;
+  width: 240px;
+  height: 42px;
+  left: 60px;
+  top: 104px;
+  
+  background: linear-gradient(92.33deg, #29BC1C 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+  border: 4px solid #107E1B;
+  border-radius: 23px;
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 35px;
+  /* identical to box height */
+  
+  text-align: center;
+  
+  color: #000000;
+  
+  }
+  .Mesas-tablaItems{
+    
+  position: absolute;
+  width: 334px;
+  height: 345px;
+  left: 13px;
+  top: 188px;
+  
+  background: #E1FF2B;
+  border-radius: 23px;
+
+  }
+  
+  
+  .Mesas-fecha{
+    position: absolute;
+  width: 49px;
+  height: 22px;
+  left: 100px;
+  top: 100px;
+  
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  
+  color: #000000;
+  
+  }
+  .Mesas-hora{
+    position: absolute;
+  width: 42px;
+  height: 22px;
+  left: 250px;
+  top: 100px;
+  
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  
+  color: #000000;
+  }
+  .Mesas-mesa{
+    position: absolute;
+  width: 123px;
+  height: 22px;
+  right:14px;
+  top: 136px;
+  
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  
+  color: #000000;
+  }
+
+.Mesas-boton-cantidad{
+
+    position: absolute;
+width: 22px;
+height: 22px;
+left: 12px;
+top: 148px;
+
+background: #427C9D;
+ 
+}
+
+
+
+
+.Mesas-cantidad{
+
+  position: absolute;
+  width: 168px;
+  height: 61px;
+  left: 16px;
+  top: 540px;
+  
+  background: #000000;
+}
+  .Mesas-producto{
+    position: absolute;
+    width: 379px;
+    height: 22px;
+    right:14px;
+    top: 160px;
+    
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    
+    color: #000000;
+  }
+
+
+
+  .Mesas-agregarPedido{
+  
+    position: absolute;
+    width: 119px;
+    height: 28px;
+    left: 0px;
+    top: 602px;
+    
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    
+    color: #000000;
+  }
+  
+  .Mesas-nuevaMesa{
+    position: absolute;
+  
+    width: 109px;
+    height: 22px;
+    left: 100px;
+    top: 602px;
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  
+  color: #000000;
+  
+  }
+  .Mesas-logo{
+    position: absolute;
+    width: 58px;
+    height: 59px;
+    left: 112px;
+    top: 540px;
+  
+    
+  }
+
+
+  .Mesas-mas{
+    position: absolute;
+  width: 68px;
+  height: 61px;
+  left: 16px;
+  top: 540px;
+  
+
+  }
+.BorrarItem{
+  position: absolute;
+  width: 39px;
+  height: 61px;
+  left: 16px;
+  top: 588px;
+  
+}
+.Mesas-nuevoItem{
+  position: absolute;
+  width: 68px;
+  height: 61px;
+  left: 16px;
+  top: 580px;
+}
+
+.Mesas-mas1{
+  
+    position: absolute;
+  width: 68px;
+  height: 61px;
+  left: 16px;
+  top: 140px;
+  
+  background: #000000;
+  
+}
+
+
+  .Mesas-mas-chico{
+    position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 8px;
+  top: 540px;
+  
+  background: #6a3232;
+  }
+.box{
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 8px;
+  top: 540px;
+  
+}
+  .Mesas-total{
+    position: absolute;
+  width: 106px;
+  height: 45px;
+  left: 169px;
+  top: 544px;
+  
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 45px;
+  /* identical to box height */
+  
+  text-align: center;
+  
+  color: #0A4605;
+  
+  }
+  .Mozo{
+    position: absolute;
+width: 45px;
+height: 22px;
+left: 209px;
+top: 602px;
+
+font-family: 'Comic Sans MS';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 22px;
+text-align: center;
+
+color: #000000;
+  }
+  .Mesas-atras{
+     position: absolute;
+width: 38px;
+height: 35px;
+left: 12px;
+top: 111px;
+
+background: #427C9D;
+  }
+ 
+.encabezadoItems{
+  /*position: absolute;*/
+  width: 335px;
+  height: 29px;
+  left: 14px;
+  top: 186px;
+  
+  /*background: #E1DD7E;*/
+ /* border-radius: 10px;*/
+  
+}
+.productoEncabezado{
+  
+position: absolute;
+width: 42px;
+height: 14px;
+left: 165px;
+top: 193px;
+
+font-family: 'Comic Sans MS';
+font-style: italic;
+font-weight: 700;
+font-size: 10px;
+line-height: 14px;
+/* identical to box height */
+
+text-align: center;
+
+color: #000000;
+}
+.subtotalEncabezado{
+  position: absolute;
+width: 72px;
+height: 14px;
+left: 271px;
+top: 193px;
+
+font-family: 'Comic Sans MS';
+font-style: italic;
+font-weight: 700;
+font-size: 10px;
+line-height: 14px;
+/* identical to box height */
+
+text-align: center;
+
+color: #000000;
+}
+.items{
+  position: relative;
+
+  height: 276px;
+  left: 18px;
+  top: 122px;
+  width: 342px;
+  font-family: 'Comic Sans MS';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 14px;
+  overflow-y: auto;
+}
+/*.items::-webkit-scrollbar {
+  width: 20px;
+}*/
+
+.filaItem1{
+  /*display:table-cell;
+  flex-direction : row;
+  height: 16px;
+    width:33px;
+    padding-right: 2rem;*/
+    display:table-cell;
+    flex-direction : row;
+  
+      width:40px;
+  
+      /*display: flex;*/
+  /*flex-direction: row;*/
+  align-items: flex-start;
+  /*padding: 10px 8px;*/
+  gap: 16px;
+  
+  width: 47px;
+  /*height: 16px;*/
+  
+  background: #CBACAC;
+  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.35);
+  
+  /* Inside auto layout */
+  
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.filaItem2{
+  display:table-cell;
+  white-space:nowrap;
+  flex-direction : row;
+
+    width:40px;
+ 
+flex-direction: row;
+align-items: flex-start;
+padding: 3px 77px;
+gap: 16px;
+
+left: 16.81%;
+right: 13.86%;
+top: 28.57%;
+bottom: 57.14%;
+overflow: hidden;
+text-overflow: ellipsis;
+background: #CBACAC;
+box-shadow: inset 1px -1px 0px rgba(0, -1, 0, 0.35);
+}
+
+.filaItem3{
+  display:table-cell;
+  flex-direction : row;
+
+    width:40px;
+
+    /*display: flex;*/
+/*flex-direction: row;*/
+align-items: flex-start;
+/*padding: 10px 8px;*/
+gap: 16px;
+
+width: 47px;
+/*height: 16px;*/
+
+background: #CBACAC;
+box-shadow: inset 1px -1px 0px rgba(0, 0, 0, 0.35);
+
+/* Inside auto layout */
+
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+}
+.columnaCantidad{
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+left: 0%;
+right: 83.48%;
+top: 0%;
+bottom: 0%;
+
+filter: drop-shadow(-1px 0px 0px rgba(0, 0, 0, 0.25));
+}
+.columnaTotal{
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+left: 86.14%;
+right: 0%;
+top: 0%;
+bottom: 14.29%;
+
+filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
+}
+.cantidadEncabezado{
+  position: absolute;
+width: 42px;
+height: 14px;
+left: 22px;
+top: 193px;
+
+font-family: 'Comic Sans MS';
+font-style: italic;
+font-weight: 700;
+font-size: 10px;
+line-height: 14px;
+/* identical to box height */
+
+
+color: #000000;
+
+}
+
+  .Mesas-header {
+  
+  width: 360px;
+  height: 97px;
+  
+  background: conic-gradient(from 180deg at 50% 50%, #FF8A00 0deg, rgba(193, 64, 239, 0.96) 228.75deg, #FF8A00 360deg);
+  border-radius: 23px;
+  
+  /* Inside auto layout */
+  
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  position:flex;
+  
+  }
+  
+  .Mesas-link {
+    color: #61dafb;
+  }
+/*--------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+  /* hace rotar la imagen del cafe
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  */
+  @media (prefers-reduced-motion: no-preference) {
+    .Mesas-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  

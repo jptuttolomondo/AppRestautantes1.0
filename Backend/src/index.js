@@ -5,16 +5,25 @@ import  routerUsers from './routes/routes.users.js'
 import  routerProducts from './routes/routes.products.js'
 import  routerItems from './routes/routes.items.js'
 import routerMesas from './routes/routes.mesas.js'
+import routerCookies from './routes/routes.cookies.js'
 import routerSessions from'./routes/routes.sessions.js'
 import session from 'express-session'
 import MongoStore from "connect-mongo";
 import cookieParser from 'cookie-parser';
 
-import cors from 'cors';
+import cors from 'cors'; 
 
 const app = express()  
-app.use(cookieParser());
+app.use(cookieParser('appresto'));
+
 app.use(cors());
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Methods','*')
+    res.header('Access-Control-Allow-Headers', '*');
+    next();
+  })
 app.use(express.json())
 app.use(express.urlencoded())
 
@@ -45,3 +54,4 @@ app.use('/',routerProducts)
 app.use('/',routerItems)
 app.use('/',routerMesas)
 app.use('/',routerSessions)
+app.use('/',routerCookies)

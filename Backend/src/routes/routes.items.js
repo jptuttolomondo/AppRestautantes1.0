@@ -10,7 +10,7 @@ res.status(200).send({result:'success',payload:items})
 
 })
 router.post("/item", async (req, res) => {
-const {cantidad,producto,subtotalItem}=req.body[0]
+const {cantidad,producto,subtotalItem}=req.body 
 
   try {
      

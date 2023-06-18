@@ -4,6 +4,7 @@ import { productModel } from "./../models/products.model.js";
 router.get("/products", async (req, res) => {
   try {
     const products = await productModel.find({deleted:false});
+  console.log(products)
     res.status(200).send({ result: "success", products });
   } catch (error) {
     console.error(error);

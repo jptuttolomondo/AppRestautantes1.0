@@ -1,0 +1,188 @@
+.cards {
+    flex-wrap: wrap;
+    background-attachment: fixed;
+    text-decoration: none;
+    align-items: flex-end;
+    text-align: center;
+
+  }
+  .containerCard1{
+    display: flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+  }
+  .containerCard {
+    display: flex;
+    position:relative;
+    /*width: 177px;
+  height: 150px;
+  left: 40px;
+  top: 200px;*/
+  flex-wrap: wrap;
+    text-decoration: none;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 0.5em;
+  
+    transition: transform 1s; 
+  }
+ /* .containerCard:hover {  
+  
+    transform:scale(3);
+     transition: transform 1s; 
+     align-self: auto;
+     
+     width: 10rem;
+     height: 10rem;
+     margin-left: auto;
+     margin-right: auto;
+
+     
+   
+     
+   }
+   
+ 
+   
+   .Ease-Out{
+     -webkit-transition: all 0.5s ease-out;
+     -moz-transition: all 0.5s ease-out;
+     -ms-transition: all 0.5s ease-out;
+     -o-transition: all 0.5s ease-out;
+     transition: all 0.5s ease-out;
+ 
+   }
+   */
+
+.Body{position: relative;
+    width: 1280px;
+    height: 720px;
+
+
+/* fondo1 */
+
+background: linear-gradient(163.28deg, rgba(206, 225, 236, 0.96) 2.17%, rgba(219, 83, 255, 0.96) 96.14%);
+}
+.Encabezado{
+/*position: absolute;*/
+width: 1280px;
+height: 174px;
+left: 0px;
+top: 0px;
+
+/* fondoHeader */
+
+background: conic-gradient(from 180deg at 50% 50%, #FF8A00 0deg, rgba(193, 64, 239, 0.96) 228.75deg, #FF8A00 360deg);
+border-radius: 0px 0px 23px 23px;
+
+
+font-family: 'Comic Sans MS';
+font-style: italic;
+font-weight: 700;
+font-size: 48px;
+line-height: 67px;
+
+
+text-align: center;
+
+color: #000000;
+}
+
+.FotoItem{
+    position: absolute;
+width: 177px;
+height: 127px;
+left: 40px;
+top: 217px;
+
+
+}
+
+
+
+
+
+/*----------------------------------------------------------------*/
+.transition{
+    width: 150px;
+    height: 70px;
+    background-color: #ddd;
+    margin: 5px;
+  }
+  
+  .transition:hover{
+    width: 300px;
+    height: 140px;
+    background-color: #333;
+  }
+  
+
+  
+  .Ease-Out{
+    -webkit-transition: all 3s ease-out;
+    -moz-transition: all 3s ease-out;
+    -ms-transition: all 3s ease-out;
+    -o-transition: all 3s ease-out;
+    transition: all 3s ease-out;
+  }
+  .botonNuevaComanda{
+   
+position: absolute;
+width: 240px;
+height: 62px;
+left:1270px;
+top: 175px;
+    background: linear-gradient(92.33deg, #29BC1C 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+    border: 4px solid #107E1B;
+    border-radius: 23px;
+    
+    
+    /* Subtitulo */
+    
+    
+    
+    
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    /* identical to box height */
+    
+    text-align: center;
+    
+    color: #000000;
+
+  }
+  .botonNuevoItem{
+   
+    position: absolute;
+    width: 278px;
+    height: 60px;
+    left: 993px;
+    top: 616px;
+        background: linear-gradient(92.33deg, #29BC1C 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+        border: 4px solid #107E1B;
+        border-radius: 23px;
+        
+        
+        /* Subtitulo */
+        
+        
+        
+        
+        font-family: 'Comic Sans MS';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 28px;
+        /* identical to box height */
+        
+        text-align: center;
+        
+        color: #000000;
+    
+      }
+    
