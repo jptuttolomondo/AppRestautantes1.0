@@ -39,6 +39,15 @@ function rootReducer(state = initialState, action) {
         ...state, cantidad: action.cantidadItem, producto: state.productoItem,
         subtotal: state.subtotalItem
       };
+
+case 'DECREMENTAR_CANTIDAD':
+  state.cantidadItem--
+  return {
+    ...state, cantidad: action.cantidadItem, producto: state.productoItem,
+    subtotal: state.subtotalItem
+  };
+
+
     case "ACTUALIZAR_COMANDA_CANTIDAD":
       return { ...state, cantidadItem: state.cantidadItem };
     case "ACTUALIZAR_COMANDA_MESA":
@@ -79,18 +88,21 @@ function rootReducer(state = initialState, action) {
       return { ...state, idComanda: action.payload }
     case 'CLEAR_MESSAGES':
       return { ...state, message: action.payload }
-    case 'ACTUALIZAR_ITEM_TOTAL':
-      return { ...state, itemsTotal: [{ ...state.itemsTotal, itemTotal: action.payload }] }
+    case 'ACTUALIZAR_ITEMS_TOTAL': state.itemsTotal=[]
+      return { ...state, itemsTotal: [ ...action.payload ] }
     case 'ACTUALIZAR_COMANDA':
       state.comanda = action.payload
       return { ...state, comanda: action.payload }
     case 'CREAR_USUARIO':
       return { state, resultCreateUser: action.payload }
     case 'LOGIN':
-      state.resultLogin = action.payload
-      return { state, resultLogin: action.payload }
+      state.resultLogin = action.status
+      state.user=action.payload
+      //console.log(state.resultLogin)
+      //console.log(state.user)
+      return { ...state, resultLogin: Number(action.status), user:state.user }
     case 'LOGOUT':
-      return { state, resultLogin: action.payload }
+      return { ...state, resultLogin: action.payload }
     default: return state
   }
 }

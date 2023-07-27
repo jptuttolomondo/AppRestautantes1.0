@@ -52,6 +52,13 @@ export function incrementar(payload) {
     }
 }
 
+export function decrementar(payload) {
+    return function (dispatch) {
+        return dispatch({ type: 'DECREMENTAR_CANTIDAD', payload: payload })
+    }
+}
+
+
 export function limpiarEstados(item) {
     return function (dispatch) {
         return dispatch({ type: 'LIMPIAR_ESTADOS', payload: item })
@@ -148,7 +155,9 @@ export function LoginUser(payload) {
         var respuesta = await axios.post('http://localhost:8080/login', payload)
         if (respuesta.status === 200) {
             alert('Usuario Logueado')
-            return dispatch({ type: 'LOGIN', payload: respuesta })
+            console.log('respuesta',respuesta)
+            console.log('respuesta.status',respuesta.status)
+            return dispatch({ type: 'LOGIN', payload:respuesta.data,status:respuesta.status})
         }
         else alert(respuesta.data.error)
         return dispatch({ type: 'LOGIN', payload: [] })

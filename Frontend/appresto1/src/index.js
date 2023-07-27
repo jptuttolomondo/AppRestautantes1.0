@@ -5,6 +5,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+// import dotenv from 'dotenv'
+// dotenv.config() 
+
+// //axios.defaults.baseURL=process.env.REACT_APP_API ||'http://localhost:3001';
+// axios.defaults.baseURL="https://pi-videogames-production-f9c4.up.railway.app/"||'http://localhost:3001'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>

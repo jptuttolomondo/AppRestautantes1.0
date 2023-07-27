@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import {
-  getAllMesas, getMozo, getAllProducts, incrementar, postComanda,
-  actualizarComandaCantidad, actualizarProducto, calcularSubtotal, actualizarComandaMesa,
-  calcularTotal,
+  getAllMesas, getMozo, getAllProducts, incrementar, postComanda,decrementar,
+  actualizarComandaCantidad, actualizarProducto, calcularSubtotal, 
+  actualizarComandaMesa, calcularTotal, actualizarArrayItems,
   confirmarItem, clearMessages, actualizarItemsTotal, actualizarComanda, limpiarEstados,
   getComandaId
 } from '../actions'
@@ -13,19 +13,18 @@ import { Link } from 'react-router-dom'
 export function AtencionMesas() {
 
   let fecha = new Date()
+  var datosFila = [];
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
   const idComanda = useSelector((state) => state.idComanda)
   const comanda = useSelector((state) => state.comanda)
-   const mesas = useSelector((state) => state.mesas)
+  const mesas = useSelector((state) => state.mesas)
   const MesaComanda = useSelector((state) => state.MesaComanda)
   const cantidad = useSelector((state) => state.cantidadItem)
- // const item = useSelector((state) => state.item)
   const itemsTotalArray = useSelector((state) => state.itemsTotal)
   const total = useSelector((state) => state.total)
   const subtotalItem = useSelector((state) => state.subtotalItem)
   const productos = useSelector((state) => state.products)
-  //const ProductoItemAux=useSelector((state)=>state.productoItem)
   const [productItem, setProductItem] = useState('')
 
   useEffect(() => {
@@ -40,21 +39,23 @@ export function AtencionMesas() {
     subtotalItem: subtotalItem ? subtotalItem : 0
   }
 
-let ArrayItemsFinal=[];
-console.log(cantidad.length,productItem)
-if(itemsTotalArray.length>0){ArrayItemsFinal=[...itemsTotalArray]
-                             ArrayItemsFinal.push(NuevoItem)}
-else  (cantidad.length>0||productItem!=='')?ArrayItemsFinal.push(NuevoItem):ArrayItemsFinal=[]
+  let ArrayItemsFinal = [];
+  if (itemsTotalArray?.length > 0) {
+    ArrayItemsFinal = [...itemsTotalArray]
+    ArrayItemsFinal?.push(NuevoItem)
+  }
+  else (cantidad?.length > 0 || productItem !== '') ? ArrayItemsFinal?.push(NuevoItem) :
+                                                       ArrayItemsFinal = []
   let comandaFinal = {
     date: fecha,
     mesa: MesaComanda ? MesaComanda : '',
     estado: 'PENDIENTE',
-    mozo: user._id,
+    mozo: user?._id,
     total: total ? total : 0,
-    items: itemsTotalArray?itemsTotalArray:[]
+    items: itemsTotalArray ? itemsTotalArray : []
   }
 
-  function handleCantidad(e) {
+  function handleCantidadMas(e) {
     if (comandaFinal.mesa.length === 0) {
       alert('seleccionar mesa')
       return
@@ -65,64 +66,96 @@ else  (cantidad.length>0||productItem!=='')?ArrayItemsFinal.push(NuevoItem):Arra
     dispatch(actualizarComandaCantidad())
   }
 
+  function handleCantidadMenos(e) {
+    if (comandaFinal.mesa.length === 0) {
+      alert('seleccionar mesa')
+      return
+    }
+    if(NuevoItem.cantidad>0){
+    dispatch(decrementar(NuevoItem.cantidad))
+    dispatch(calcularSubtotal())
+    dispatch(calcularTotal(itemsTotalArray))
+    dispatch(actualizarComandaCantidad())
+    }
+  }
+
+
   function handleProduct(e) {
-    if(comandaFinal.mesa.length===0){alert('seleccionar mesa')
-    return}
-    if(e.target.value==='seleccionar') return
-    let productoItem = productos.filter(el => (el.productName === e.target.value))
+    if (comandaFinal.mesa.length === 0) {
+      alert('seleccionar mesa')
+      return
+    }
+    if (e.target.value === 'seleccionar') return
+    let productoItem = productos?.filter(el => (el.productName === e.target.value))
     setProductItem(productoItem)
     dispatch(actualizarProducto(productoItem))
   }
 
-  function handleMesas(e) {dispatch(actualizarComandaMesa(e.target.value)) }
+  function handleMesas(e) { dispatch(actualizarComandaMesa(e.target.value)) }
 
   function handleSubmit(e) {
-e.preventDefault()
-dispatch(postComanda(comandaFinal))
-   }
+    e.preventDefault()
+    dispatch(postComanda(comandaFinal))
+  }
 
   function handleConfirmItem(e) {
     e.preventDefault()
     dispatch(confirmarItem(NuevoItem))
-    //hay que hacer que confirmar devuelva el id_item grabado, 
     let ArraydeItems = [...itemsTotalArray, NuevoItem]
     dispatch(calcularTotal(ArraydeItems))
     dispatch(limpiarEstados(itemsTotalArray))
   }
+
   function handleBorrarItem(e) {
     e.preventDefault()
-    var campos = document.getElementsByTagName('td');
-  //  dispatch(BorrarItem(NuevoItem))
-   // let ArraydeItems = [...itemsTotalArray, NuevoItem]
-   // dispatch(calcularTotal(ArraydeItems))
-   // dispatch(limpiarEstados(itemsTotalArray))
+
+
+    let productoFiltrado = productos?.filter(elem => elem.productName === datosFila[1])
+    ArrayItemsFinal = [...itemsTotalArray?.filter(e => e.producto !== productoFiltrado[0]._id)]
+ if(ArrayItemsFinal.length>0){
+    dispatch(actualizarItemsTotal(ArrayItemsFinal))
+    dispatch(calcularTotal(ArrayItemsFinal))}
+  else alert('confirmar item antes de borrar')
+limpiarSeleccion()
   }
 
-function seleccionar(){
+function limpiarSeleccion(){
+  let campo = document.getElementsByTagName('td');
+for (let i=0;i<campo.length;i++)  campo[i].style.backgroundColor = '';
 
-var campos = document.getElementsByTagName('td');
-console.log(campos)
+ datosFila=[]
+}
 
-for (var i = 0; i < campos.length; i++) {
- // console.log('campo',i,'-esimo: ',campos[i])
-  campos[i].addEventListener('click', function() {
-    var fila = this.parentNode;
-    fila.style.backgroundColor = 'lightblue';
-    var datosFila = [];
-     for (var j = 0; j < fila.childNodes.length; j++) {
-      datosFila.push(fila.childNodes[j].textContent);
-     
+  function seleccionar() {
+    var datosFila=[]
+    var campos = document.getElementsByTagName('td');
+    //console.log('campos',campos)
+    for (var i = 0; i < campos.length; i++) {
+
+      campos[i].addEventListener('click', function () {
+        var fila = this.parentNode;
+        if(datosFila.length<3){
+        for (var j = 0; j < fila.childNodes.length; j++) {
+          if(fila.childNodes[0].textContent!==''&&fila.childNodes[0].textContent!=='0') 
+          {datosFila.push(fila.childNodes[j].textContent);  
+        console.log(fila.childNodes[j].style.background)
+        console.log('datosfila',datosFila)
+        fila.childNodes[j].style.background= 'red'}
+
+      // if(fila.childNodes[j].style.background==='red' ) {console.log('pasaporaca')
+      //                                                   fila.childNodes[j].style.background= ''
+
+      //   }
+      //   else {console.log('pasaporelse')
+      //   fila.childNodes[j].style.background= 'red'
+      //       }
+      //     this.classList.toggle('seleccionada')
+      }
     }
-    
-    // Muestra los datos de la fila seleccionada
-    console.log('Fila seleccionada:', datosFila);
-    
-  });
-}
-}
-
-
- console.log('comanda final',comandaFinal)
+  }
+      );
+    }
+    }
 
   return (
     <div align="center">
@@ -141,48 +174,50 @@ for (var i = 0; i < campos.length; i++) {
           <div className="Mesas-mesa">Mesa:
             <select onChange={(e) => handleMesas(e)} className="Mesas">
               <option value='seleccionar'>sel</option>
-              {mesas.map((el) => (
+              {mesas?.map((el) => (
                 <option value={el.mesa} key={el._id} >{el.mesa} </option>
               ))}
             </select>
           </div>
-          <div><button className="Mesas-boton-cantidad" onClick={(e) => handleCantidad(e)}>+</button>
-          </div>
+          <div><button className="Mesas-boton-cantidad-mas" onClick={(e) => handleCantidadMas(e)}>+</button> </div>
+          <div><button className="Mesas-boton-cantidad-menos" onClick={(e) => handleCantidadMenos(e)}>-</button></div>
           <div className="Mesas-producto">Producto:
             <select onChange={(e) => handleProduct(e)} >
               <option value='seleccionar'>Productos</option>
-              {productos.map((el) => (
+              {productos?.map((el) => (
                 <option value={el.productName} key={el._id} >{el.productName} </option>
               ))}
             </select>
           </div>
-          <table className="encabezadoItems">
+          <table className="encabezadoItems" id='tablaItems'>
+            <thead>
             <tr>
-          <th className="cantidadEncabezado">Cantidad</th>
-          <th className="productoEncabezado">Producto</th>
-          <th className="subtotalEncabezado">Subtotal</th>
-          </tr>
-          <div className="items">{ArrayItemsFinal?.map((e, index) => {
-                        return (
-              <div key={index}>
-                <td className='filaItem1'>{e.cantidad}</td>
-                <td className='filaItem2'>{productos.map(elem => { if (elem._id === e.producto) return elem.productName }
-                )}
-                </td>
-                <td className='filaItem3' >{e.subtotalItem} </td>
-              
-              </div>
-            )
-          })}
-          </div>
+              <th className="cantidadEncabezado">Cantidad</th>
+              <th className="productoEncabezado">Producto</th>
+              <th className="subtotalEncabezado">Subtotal</th>
+            </tr>
+            </thead>
+            <tbody >{ArrayItemsFinal?.map((e, index) => {
+              return (
+                <tr className="items" key={index}>
+              <td className='filaItem1'>{e.cantidad}</td>
+                  <td className='filaItem2'>{productos.map(elem => { if (elem._id === e.producto) return elem.productName }
+                  )}
+                  </td>
+                  <td className='filaItem3' >{e.subtotalItem} </td>
+               
+                </tr>
+              )
+            })}
+            </tbody>
           </table>
-          {seleccionar()
-                }
-          <div className="Mesas-total">Total:{total}</div>
+          {seleccionar() }
+
+         <div className="Mesas-total">Total:{total}</div>
           <div className="Mesas-mas"><button onClick={(e) => handleConfirmItem(e)}>Confirmar Item</button></div>
           <div className="BorrarItem"><button onClick={(e) => handleBorrarItem(e)}>Borrar Item</button></div>
           <div className="Mesas-logo"><button type='submit' onClick={(e) => handleSubmit(e)}>confirmar</button></div>
-          <div className='Mozo'>Mozo:{user.firstName} </div>
+          <div className='Mozo'>Mozo:{user?.firstName} </div>
         </form>
       </div>
     </div>

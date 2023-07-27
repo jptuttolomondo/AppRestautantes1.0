@@ -32,7 +32,8 @@ router.post('/login', async (req, res) => {
             deleted:user.deleted
         }
 //console.log(session.user)
-        res.send('login');
+//console.log(user)
+        res.send(user._id);
     } catch (error) {
         res.status(500).send({ status: 'error', error });
         console.log(error);

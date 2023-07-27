@@ -4,8 +4,11 @@ import { LoginUser } from '../actions/index.js';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import {Login}from './login.js'
+import { AtencionMesas } from './atencionMesas';
 export function Home() {
 const resultLogin=useSelector((state)=>state.resultLogin)
+
+
 // useEffect(()=>{
 
 
@@ -14,8 +17,8 @@ const resultLogin=useSelector((state)=>state.resultLogin)
 
 
   return (
-   // resultLogin.length===0? <Login/>:
-    <div align="center">
+ resultLogin!==200? <Login/>:
+       <div align="center">
 <div className="home-body">
       <div className="landing-header">
       <div className="landing-titulo">Aplicación para<br></br> Restaurantes/Café</div>

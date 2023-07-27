@@ -10,6 +10,11 @@ import routerSessions from'./routes/routes.sessions.js'
 import session from 'express-session'
 import MongoStore from "connect-mongo";
 import cookieParser from 'cookie-parser';
+import dotenv from 'dotenv';
+dotenv.config()
+const {
+    PORT,STRING_DB
+  } = process.env;
 
 import cors from 'cors'; 
 
@@ -28,11 +33,11 @@ app.use(express.json())
 app.use(express.urlencoded())
 
 
-const server = app.listen(8080,() => {console.log('server connected at 8080')})
+const server = app.listen(PORT,() => {console.log('server connected at 8080')})
 
 
 try {//ver de poner el nombre de la base de datos, asi no usa test en atlas
-mongoose.connect('mongodb+srv://adminappresto:Goring2311*@clusterappresto.ud9f7tf.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(STRING_DB)
 console.log('db connection established')
 } 
 catch (error) {console.error(error)}  
