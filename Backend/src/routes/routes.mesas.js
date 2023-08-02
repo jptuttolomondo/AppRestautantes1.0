@@ -1,22 +1,50 @@
 import { Router } from "express";
-import {mesaModel}from './../models/mesas.model.js'
+//import {mesaModel}from '../dao/Models/mesas.model.js'
 const router = Router();
 
+import{ getMesas,createMesa,deleteMesa}from '../controllers/mesas.controllers.js'
 
-router.post("/mesa",async (req,res)=>{
-    const {mesa}=req.body
-    await mesaModel.create({
-        mesa
-    })
-  res.send('post de mesa')
-})
+router.get('/mesas',getMesas)
+router.post('/mesas',createMesa)
+router.delete('/mesas',deleteMesa)
 
+ export default router
 
 
-router.get("/mesas",async (req,res)=>{
 
-   const mesas= await mesaModel.find()
-   res.status(200).send({ result: "success", payload: mesas });
-})
 
-export default router
+
+
+/*
+import Router from './router.js';
+// import Products from "../dao/dbManagers/products.js";
+import addProductValidator from "../middlewares/addProductValidator.js";
+import {
+    getProducts,
+    findProduct,
+    addNewProduct,
+    updateProduct,
+    deleteProduct,
+    renderProductsRealTime
+} from '../controllers/productsController.js';
+
+
+
+export default class ProductsRouter extends Router {
+    init() {
+        this.get('/', ['USER', 'ADMIN'], getProducts);
+
+        this.get("/product/:id", ['USER', 'ADMIN'], findProduct);
+
+        this.post("/", ['ADMIN'], addProductValidator, addNewProduct);
+
+        this.put("/:id", ['ADMIN'], updateProduct);
+
+        this.delete("/:id",['ADMIN'], deleteProduct);
+
+        this.get("/realtimeproducts", ['USER', 'ADMIN'],renderProductsRealTime);
+
+    }
+
+
+}*/

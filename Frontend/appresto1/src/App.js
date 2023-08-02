@@ -1,4 +1,4 @@
-import { Provider, useSelector } from 'react-redux';
+
 import {Route,Routes} from 'react-router-dom'
 import {Landing} from'./components/landing.js'
 import { Home } from "./components/home.js";
@@ -10,16 +10,26 @@ import { Login } from './components/login.js';
 import {Quit} from  './components/quit.js';
 import { Zoom } from './components/zoom.js';
 import {Register}from './components/register.js'
+//import axios from 'axios'
 import './App.css';
-import {store}from'./store/index'
-import { useEffect } from 'react';
+
+//import { useEffect } from 'react';
+
 
 
 function App() {
-
+// const url='http://localhost:8080'
+// async function lee(){
+   
+//       const res=await axios.get(`${url}/products`)
+//       console.log(res)
+// } 
+// useEffect(()=>{
+// lee()
+// },[])
   return (      
    <div >
-        <Provider store= {store}>
+        
          <Routes>
                 <Route  path="/" element={<Landing/>} > </Route>
                 <Route  path="/mesas" element={<AtencionMesas/>} > </Route>
@@ -32,7 +42,7 @@ function App() {
                 <Route exact path="/quit" element={<Quit/>} > </Route>
                 <Route exact path="/zoom" element={<Zoom/>} > </Route>
           </Routes>
-    </Provider>
+
      </div>    
      );
 } 

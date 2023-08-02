@@ -3,17 +3,21 @@ import axios from 'axios'
 
 export function getAllProducts() {
     return async function (dispatch) {
-        var response = await axios.get('http://localhost:8080/products')
-        return dispatch({ type: 'GET_ALL_PRODUCTS', payload: response.data.products })
+      
+            const response = await axios.get('http://localhost:8080/products')
+        console.log(response.data.result)
+        return dispatch({ type: 'GET_ALL_PRODUCTS', payload: response.data.result })
+
+      
     }
 }
 
-export function getMozo(name) {
-    return async function (dispatch) {
-        var response = await axios.get(`http://localhost:8080/users/${name}`)
-        return dispatch({ type: 'GET_USER_BY_NAME', payload: response.data.payload[0] })
-    }
-}
+// export function getMozo(name) {
+//     return async function (dispatch) {
+//         var response = await axios.get(`http://localhost:8080/users/${name}`)
+//         return dispatch({ type: 'GET_USER_BY_NAME', payload: response.data.payload[0] })
+//     }
+// }
 
 export function getAllcategories() {
     return async function (dispatch) {
@@ -25,7 +29,8 @@ export function getAllcategories() {
 export function getAllMesas() {
     return async function (dispatch) {
         var response = await axios.get('http://localhost:8080/mesas')
-        return dispatch({ type: 'GET_ALL_MESAS', payload: response.data.payload })
+    
+        return dispatch({ type: 'GET_ALL_MESAS', payload: response.data.result })
     }
 }
 
@@ -155,7 +160,7 @@ export function LoginUser(payload) {
         var respuesta = await axios.post('http://localhost:8080/login', payload)
         if (respuesta.status === 200) {
             alert('Usuario Logueado')
-            console.log('respuesta',respuesta)
+            console.log('respuesta',respuesta.data)
             console.log('respuesta.status',respuesta.status)
             return dispatch({ type: 'LOGIN', payload:respuesta.data,status:respuesta.status})
         }
@@ -167,6 +172,15 @@ export function LoginUser(payload) {
 export function Logout(payload) {
     return async function (dispatch) {
         var response = await axios.get('http://localhost:8080/logout', payload)
-        return dispatch({ type: 'LOGOUT', payload: [] })
+        return dispatch({ type: 'LOGOUT', payload: [response] })
+    }
+}
+
+
+export function itemSelection (payload) {
+
+    return function(dispatch){
+    
+       return dispatch ({type:'ITEM_SELECTED', payload: payload})
     }
 }

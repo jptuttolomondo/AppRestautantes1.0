@@ -4,8 +4,8 @@ import {BrowserRouter} from 'react-router-dom'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-
+import {store}from'./store/index'
+import { Provider} from 'react-redux';
 // import dotenv from 'dotenv'
 // dotenv.config() 
 
@@ -13,9 +13,11 @@ import reportWebVitals from './reportWebVitals';
 // axios.defaults.baseURL="https://pi-videogames-production-f9c4.up.railway.app/"||'http://localhost:3001'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <Provider store= {store}>
   <BrowserRouter>
     <App />
   </BrowserRouter>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

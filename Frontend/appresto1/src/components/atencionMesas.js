@@ -1,23 +1,24 @@
 import { useEffect, useState } from 'react';
+//ver actualizarArrayItems , clearMessages,actualizarComanda,  getComandaId
 import {
-  getAllMesas, getMozo, getAllProducts, incrementar, postComanda,decrementar,
+  getAllMesas, getAllProducts, incrementar, postComanda,decrementar,
   actualizarComandaCantidad, actualizarProducto, calcularSubtotal, 
-  actualizarComandaMesa, calcularTotal, actualizarArrayItems,
-  confirmarItem, clearMessages, actualizarItemsTotal, actualizarComanda, limpiarEstados,
-  getComandaId
+  actualizarComandaMesa, calcularTotal,
+  confirmarItem, actualizarItemsTotal,  limpiarEstados,itemSelection,
 } from '../actions'
 import { useDispatch, useSelector } from "react-redux";
 import './atencionMesas.css';
 import { Link } from 'react-router-dom'
 
+
 export function AtencionMesas() {
 
   let fecha = new Date()
-  var datosFila = [];
+ 
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
-  const idComanda = useSelector((state) => state.idComanda)
-  const comanda = useSelector((state) => state.comanda)
+ // const idComanda = useSelector((state) => state.idComanda)
+ // const comanda = useSelector((state) => state.comanda)
   const mesas = useSelector((state) => state.mesas)
   const MesaComanda = useSelector((state) => state.MesaComanda)
   const cantidad = useSelector((state) => state.cantidadItem)
@@ -25,12 +26,13 @@ export function AtencionMesas() {
   const total = useSelector((state) => state.total)
   const subtotalItem = useSelector((state) => state.subtotalItem)
   const productos = useSelector((state) => state.products)
+  const itemSelect = useSelector((state) => state.itemSelected)
   const [productItem, setProductItem] = useState('')
 
   useEffect(() => {
     dispatch(getAllMesas())
-    dispatch(getAllProducts())
-    dispatch(getMozo(user))
+   dispatch(getAllProducts())
+
   }, [dispatch])
 
   let NuevoItem = {
@@ -95,67 +97,88 @@ export function AtencionMesas() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    dispatch(postComanda(comandaFinal))
+   // dispatch(postComanda(comandaFinal))
+   //separa confirmar comanda de handlesubmit
   }
 
   function handleConfirmItem(e) {
     e.preventDefault()
+    console.log(NuevoItem)
+    if (comandaFinal.mesa.length === 0) alert('seleccionar mesa') 
+    else if(NuevoItem.producto==='')alert("Ingresar Producto")
+         else if(NuevoItem.cantidad.length===0)alert("Ingresar Cantidad")
+    if(NuevoItem.cantidad>0&& NuevoItem.producto!==null){
     dispatch(confirmarItem(NuevoItem))
     let ArraydeItems = [...itemsTotalArray, NuevoItem]
     dispatch(calcularTotal(ArraydeItems))
     dispatch(limpiarEstados(itemsTotalArray))
+    }
+
   }
 
   function handleBorrarItem(e) {
     e.preventDefault()
-
-
-    let productoFiltrado = productos?.filter(elem => elem.productName === datosFila[1])
+if(itemSelect.length > 0) {
+  let productoFiltrado = productos?.filter(elem => elem.productName === itemSelect[1])
+  
     ArrayItemsFinal = [...itemsTotalArray?.filter(e => e.producto !== productoFiltrado[0]._id)]
- if(ArrayItemsFinal.length>0){
+    console.log('arrayItems para actualizar',ArrayItemsFinal)
+
     dispatch(actualizarItemsTotal(ArrayItemsFinal))
-    dispatch(calcularTotal(ArrayItemsFinal))}
-  else alert('confirmar item antes de borrar')
-limpiarSeleccion()
+    dispatch(calcularTotal(ArrayItemsFinal))
+ 
+ limpiarSeleccion()
   }
+  else alert('debe seleccionar el item')
+
+}
+
+
 
 function limpiarSeleccion(){
   let campo = document.getElementsByTagName('td');
 for (let i=0;i<campo.length;i++)  campo[i].style.backgroundColor = '';
-
- datosFila=[]
+dispatch(itemSelection([]))
 }
 
   function seleccionar() {
-    var datosFila=[]
-    var campos = document.getElementsByTagName('td');
-    //console.log('campos',campos)
+     const datosFila1=[]
+    const campos = document.getElementsByTagName('td');
     for (var i = 0; i < campos.length; i++) {
-
       campos[i].addEventListener('click', function () {
-        var fila = this.parentNode;
-        if(datosFila.length<3){
+        let fila = this.parentNode;
+        if(datosFila1.length<3){
         for (var j = 0; j < fila.childNodes.length; j++) {
           if(fila.childNodes[0].textContent!==''&&fila.childNodes[0].textContent!=='0') 
-          {datosFila.push(fila.childNodes[j].textContent);  
-        console.log(fila.childNodes[j].style.background)
-        console.log('datosfila',datosFila)
-        fila.childNodes[j].style.background= 'red'}
 
-      // if(fila.childNodes[j].style.background==='red' ) {console.log('pasaporaca')
-      //                                                   fila.childNodes[j].style.background= ''
-
-      //   }
-      //   else {console.log('pasaporelse')
-      //   fila.childNodes[j].style.background= 'red'
-      //       }
-      //     this.classList.toggle('seleccionada')
+          {
+            if(itemSelect.length===0){
+            datosFila1.push(fila.childNodes[j].textContent);  
+          fila.childNodes[j].style.background= 'red'  
+          dispatch(itemSelection(datosFila1))
+        }
+          else {
+            fila.childNodes[j].style.background= ''
+            dispatch(itemSelection([]))
+          } 
+            }
+             } 
       }
-    }
   }
       );
     }
-    }
+  }
+
+
+
+
+
+  
+
+
+
+
+
 
   return (
     <div align="center">
@@ -197,21 +220,31 @@ for (let i=0;i<campo.length;i++)  campo[i].style.backgroundColor = '';
               <th className="subtotalEncabezado">Subtotal</th>
             </tr>
             </thead>
-            <tbody >{ArrayItemsFinal?.map((e, index) => {
+            <tbody >{ArrayItemsFinal.length>0?
+            
+            ArrayItemsFinal?.map((e, index) => {
               return (
                 <tr className="items" key={index}>
               <td className='filaItem1'>{e.cantidad}</td>
-                  <td className='filaItem2'>{productos.map(elem => { if (elem._id === e.producto) return elem.productName }
+                  <td className='filaItem2'>{productos.map(elem => { if (elem._id === e.producto) return elem.productName 
+                  return null}
                   )}
                   </td>
                   <td className='filaItem3' >{e.subtotalItem} </td>
                
                 </tr>
               )
-            })}
+            })
+            : 
+              <tr className="items" >
+                <td className='filaItem2'> productos</td>
+            </tr>
+            
+            }
             </tbody>
           </table>
-          {seleccionar() }
+          {seleccionar()}
+        
 
          <div className="Mesas-total">Total:{total}</div>
           <div className="Mesas-mas"><button onClick={(e) => handleConfirmItem(e)}>Confirmar Item</button></div>

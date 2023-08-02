@@ -14,6 +14,7 @@ const initialState = {
   MesaComanda: [],
   item: [],
   itemsTotal: [],
+  itemSelected: [],
   message: [],
   idComanda: [],
   resultCreateUser: [],
@@ -39,7 +40,8 @@ function rootReducer(state = initialState, action) {
         ...state, cantidad: action.cantidadItem, producto: state.productoItem,
         subtotal: state.subtotalItem
       };
-
+case 'ITEM_SELECTED': 
+return{...state, itemSelected:action.payload};
 case 'DECREMENTAR_CANTIDAD':
   state.cantidadItem--
   return {
@@ -97,9 +99,9 @@ case 'DECREMENTAR_CANTIDAD':
       return { state, resultCreateUser: action.payload }
     case 'LOGIN':
       state.resultLogin = action.status
-      state.user=action.payload
+      state.user=action.payload[0]
       //console.log(state.resultLogin)
-      //console.log(state.user)
+      console.log(state.user)
       return { ...state, resultLogin: Number(action.status), user:state.user }
     case 'LOGOUT':
       return { ...state, resultLogin: action.payload }
