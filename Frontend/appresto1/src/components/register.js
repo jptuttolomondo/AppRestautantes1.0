@@ -8,6 +8,9 @@ import stylesRegister from'./register.module.css'
 export function Register() {
 const dispatch=useDispatch()
 const   resultCreateUser=useSelector((state)=>state.resultCreateUser)
+console.log('resultCreateUser',resultCreateUser)
+console.log('resultCreateUser',resultCreateUser.status)
+console.log('resultCreateUser',resultCreateUser.message)
 const [errors,setErrors]=useState({})
 const [input,setInput]=useState({
     firstName:'',
@@ -58,8 +61,7 @@ else { if(!(/^[A-Za-z]+\s\d+$/.test(input.address))) errors.address="Calle y num
         errors.inputDate = "Completar fecha"
                         } 
     else {let fecha=new Date()
-        console.log(fecha)
-        console.log(input.inputDate)
+       
         if(input.inputDate>fecha.toLocaleDateString()) errors.inputDate="Ingrese fecha anterior"
     }   
 
@@ -96,7 +98,7 @@ function handleChange(e){
             } else {
             e.preventDefault()
         dispatch(postCreateUser(input))
-        resultCreateUser===200?  alert('Usuario Creado correctamente'): alert('Error.Intente Nuevamente')
+        if(resultCreateUser.status) alert(resultCreateUser.status+'  :'+resultCreateUser.message)
        
                
                 

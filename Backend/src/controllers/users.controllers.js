@@ -14,13 +14,13 @@ catch(error){
 const createUser= async (req,res)=>{
     try{
         const user = req.body;
-        const result = await usersService.createUser(user);
-        res.send({ status: 'success', result });
-    }
-catch(error){
-    res.status(500).send({ status: 'error', message: error.message });
+       const result = await usersService.createUser(user);
+       if (result.error)  res.status(201).send({ status: 'error', message: result.error})
+       else  res.status(200).send({ status: 'success', message:'usuario creado correctamente',result });
+        }
+catch(error){ res.status(500).send({ status: 'error', message: error.message })}
 }
-}
+
 
 const deleteUser= async (req,res)=>{
     try{

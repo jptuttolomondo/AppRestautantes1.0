@@ -1,5 +1,5 @@
 import { getNameMozo } from "./users.controllers.js";
-import { getItems } from "../controllers/itemsControllers.js";
+import { getItems } from "./itemsControllers.js";
 export async function getAllComandas(comandasGet) {
   const salidaComanda = [];
   for (let i = 0; i < comandasGet.length; i++) {

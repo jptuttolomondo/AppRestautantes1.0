@@ -5,19 +5,13 @@ export function getAllProducts() {
     return async function (dispatch) {
       
             const response = await axios.get('http://localhost:8080/products')
-        console.log(response.data.result)
+
         return dispatch({ type: 'GET_ALL_PRODUCTS', payload: response.data.result })
 
       
     }
 }
 
-// export function getMozo(name) {
-//     return async function (dispatch) {
-//         var response = await axios.get(`http://localhost:8080/users/${name}`)
-//         return dispatch({ type: 'GET_USER_BY_NAME', payload: response.data.payload[0] })
-//     }
-// }
 
 export function getAllcategories() {
     return async function (dispatch) {
@@ -43,11 +37,10 @@ export function getComandaId(id) {
 
 export function confirmarItem(payload) {//USO ESTA
     return async function (dispatch) {
-        var response = await axios.post('http://localhost:8080/item', payload)
-        let array = []
-        array.push(payload)
-        return dispatch({ type: 'CONFIRMAR_ITEM', payload: response.data, 
-        datos: payload, ArrayItems: array })
+  
+       // var response = await axios.post('http://localhost:8080/item', payload)
+      
+        return dispatch({ type: 'CONFIRMAR_ITEM', payload: payload })
     }
 }
 
@@ -151,17 +144,19 @@ export function actualizarComanda(payload, idComanda) {//USO ESTA
 export function postCreateUser(payload) {
     return async function (dispatch) {
         var response = await axios.post('http://localhost:8080/user', payload)
-        return dispatch({ type: 'CREAR_USUARIO', payload: response.status })
+        console.log(response.data)
+        return dispatch({ type: 'CREAR_USUARIO', payload: response.data })
     }
 }
 
 export function LoginUser(payload) {
     return async function (dispatch) {
         var respuesta = await axios.post('http://localhost:8080/login', payload)
+        console.log(respuesta)
         if (respuesta.status === 200) {
-            alert('Usuario Logueado')
-            console.log('respuesta',respuesta.data)
-            console.log('respuesta.status',respuesta.status)
+        
+             alert('Usuario Logueado')
+          
             return dispatch({ type: 'LOGIN', payload:respuesta.data,status:respuesta.status})
         }
         else alert(respuesta.data.error)

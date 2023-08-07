@@ -7,7 +7,7 @@ export default class UsersDao {
         return result;
     }
     getUserById = async (id) => {
-        console.log('userbyid',id)
+     
         const result = await userModel.find({_id:id});
         return result;
     }
@@ -15,13 +15,16 @@ export default class UsersDao {
         const result = await userModel.delete(id);
         return result;
     }
-// getNameMozo =async(id)=> {
-//     const result = await userModel.find({_id:id})
-//     return result[0].firstName
-// }
+
     createUser = async (user) => {
-        const result = await userModel.create(user);
-        return result;
+        const finded = await userModel.findOne({username: user.username});
+        if(finded){
+        return {error:'el usuario ya está registrado'};
+        }
+    else {
+        const result = await userModel.create(user)
+        return result
+    }
     }
     updateUser = async (id, user) => {
         const result = await userModel.findByIdAndUpdate(id, user);

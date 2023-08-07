@@ -40,8 +40,9 @@ function rootReducer(state = initialState, action) {
         ...state, cantidad: action.cantidadItem, producto: state.productoItem,
         subtotal: state.subtotalItem
       };
-case 'ITEM_SELECTED': 
-return{...state, itemSelected:action.payload};
+case 'ITEM_SELECTED': state.itemSelected.length===0?state.itemSelected=action.payload
+:state.itemSelected=action.payload
+return{...state, itemSelected:state.itemSelected};
 case 'DECREMENTAR_CANTIDAD':
   state.cantidadItem--
   return {
@@ -83,7 +84,9 @@ case 'DECREMENTAR_CANTIDAD':
     case 'CALCULAR_TOTAL':
       return { ...state, total: Number(action.payload) }
     case 'CONFIRMAR_ITEM':
-      return { ...state, itemsTotal: [...state.itemsTotal, action.datos] }
+ 
+
+      return { ...state, itemsTotal: [...state.itemsTotal,action.payload] }
     case 'LIMPIAR_ESTADOS':
       return { ...state, productoItem: [], cantidadItem: [], subtotalItem: [] }
     case 'POST_COMANDA':
@@ -96,12 +99,13 @@ case 'DECREMENTAR_CANTIDAD':
       state.comanda = action.payload
       return { ...state, comanda: action.payload }
     case 'CREAR_USUARIO':
+
+    
       return { state, resultCreateUser: action.payload }
     case 'LOGIN':
       state.resultLogin = action.status
       state.user=action.payload[0]
-      //console.log(state.resultLogin)
-      console.log(state.user)
+ 
       return { ...state, resultLogin: Number(action.status), user:state.user }
     case 'LOGOUT':
       return { ...state, resultLogin: action.payload }

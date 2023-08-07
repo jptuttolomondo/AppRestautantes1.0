@@ -2,10 +2,12 @@ import { Router } from "express";
 
 const router = Router();
 
-import{ getComandas,createComanda,deleteComanda}from '../controllers/comandas.controllers.js'
+import{ getComandas,createComanda,deleteComanda,modifyComanda,getComandaById}from '../controllers/comandas.controllers.js'
 
 router.get('/comandas',getComandas)
-router.post('/comandas',createComanda)
-router.delete('/comandas',deleteComanda)
+router.get('/comanda/:_idcomanda',getComandaById)
+router.post('/comanda',createComanda)
+router.put('/comanda/:_idcomanda',modifyComanda)
+router.delete('/comanda/:_idcomanda',deleteComanda)
 
 export default router

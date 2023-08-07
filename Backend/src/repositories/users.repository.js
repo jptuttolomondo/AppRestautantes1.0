@@ -9,9 +9,9 @@ export default class UsersRepository {
         const result = await this.dao.getUsers();
         return result;
     }
-    createUser = async (mesa) => {
-        const result = await this.dao.createUser(mesa);
-        return result;
+    createUser = async (user) => {
+             const result = await this.dao.createUser(user);
+           return result;
     }
         deleteUser = async (id) => {
         const result = await this.dao.deleteUser(id);

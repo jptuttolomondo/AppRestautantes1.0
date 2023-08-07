@@ -12,7 +12,7 @@ import{
 }from '../controllers/users.controllers.js'
 
 router.get('/users',getUsers)
-router.post('/users',createUser)
+router.post('/user',createUser)
 router.delete('/users',deleteUser)
 router.get('/users/:uuid',getUserById)
 //router.get('/users/username/:uuid',getNameMozo)

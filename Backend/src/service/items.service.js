@@ -19,8 +19,15 @@ const deleteItem = async (id) => {
     return result;
 }
 
+const updateItem = async (id) => {
+    const result = await itemsRepository.updateItem(id);
+    return result;
+}
+
+
 export {
     createItem,
     getItems,
-    deleteItem
+    deleteItem,
+    updateItem
 }

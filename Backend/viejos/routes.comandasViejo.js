@@ -1,9 +1,9 @@
 import { Router } from "express";
 const router = Router();
-import { comandaModel } from "../dao/Models/comandas.model.js";
-import  userModel  from "../dao/Models/users.model.js";
-import { itemModel } from "../dao/Models/items.model.js";
-import { getAllComandas } from "../controllers/comandasControllers.js";
+import { comandaModel } from "../src/dao/Models/comandas.model.js";
+import  userModel  from "../src/dao/Models/users.model.js";
+import { itemModel } from "../src/dao/Models/items.model.js";
+import { getAllComandas } from "../src/controllers/comandasControllers.js";
 
 router.get("/comandas", async (req, res) => {
   try {
@@ -72,7 +72,7 @@ router.post("/nuevacomanda", async (req, res) => {
   }
   try {
 
-    console.log(body)
+
   
     const comandaSave = await comandaModel.create({
       date:'',
@@ -148,7 +148,7 @@ router.delete("/comanda/:uuid", async (req, res) => {
       comandaToLogicalDelete
     );
     const itemsToDelete = await itemModel.find({ comanda: uuid });
-    console.log(itemsToDelete);
+
     await itemModel.updateMany({ comanda: uuid }, { deleted: true });
     res.status(200).send({ result: "success", payload: comanda });
   } catch (error) {

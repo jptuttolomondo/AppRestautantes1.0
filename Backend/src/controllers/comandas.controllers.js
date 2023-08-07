@@ -14,6 +14,7 @@ catch(error){
 const createComanda= async (req,res)=>{
     try{
         const Comanda = req.body;
+Comanda["deleted"]=false
         const result = await ComandasService.createComanda(Comanda);
         res.send({ status: 'success', result });
     }
@@ -32,4 +33,27 @@ catch(error){
 }
 }
 
-export{getComandas,createComanda,deleteComanda}
+
+
+const modifyComanda= async (req,res)=>{
+    try{
+        const { id } = req.params;
+        const result = await ComandasService.modifyComanda(id);
+    }
+catch(error){
+    res.status(500).send({ status: 'error', message: error.message });
+}
+}
+
+
+
+const getComandaById= async (req,res)=>{
+    try{
+        const { id } = req.params;
+        const result = await ComandasService.getComandaById(id);
+    }
+catch(error){
+    res.status(500).send({ status: 'error', message: error.message });
+}
+}
+export{getComandas,createComanda,deleteComanda,modifyComanda,getComandaById}

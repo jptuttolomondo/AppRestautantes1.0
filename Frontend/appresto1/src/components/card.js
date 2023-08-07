@@ -13,7 +13,7 @@ export default function Card({ name, description, id, image, precio }) {
   //aqui se tiene que guardar en tabla la nueva comanda o un put
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(comandas)
+   
     if(comandas.items.length=== 0){
 
 
@@ -44,7 +44,7 @@ export default function Card({ name, description, id, image, precio }) {
     }
     let arrTotal = comandas.items?.map((el) => el.totalParcial);
     comandas.total = arrTotal.reduce((a, b) => a + b);
-    console.log(comandas)
+
     return comandas.items;
    }
   }

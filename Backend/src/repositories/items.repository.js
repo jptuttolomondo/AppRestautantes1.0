@@ -18,4 +18,8 @@ export default class ItemsRepository {
     const result = await this.dao.deleteItem(id);
     return result;
   };
+updateItem = async (id) => {
+    const result = await this.dao.updateItem(id);
+    return result;
+  };
 }
