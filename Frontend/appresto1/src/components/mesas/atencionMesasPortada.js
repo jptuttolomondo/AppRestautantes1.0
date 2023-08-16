@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { getAllProducts,getAllcategories } from "../actions";
+import { getAllProducts,getAllcategories } from "../../actions/index.js";
 import { useDispatch, useSelector } from "react-redux";
-import Card from "./card";
+import Card from "./../../utils/card.js";
 import portada from "./atencionMesasPortada.module.css";
 import {Link} from 'react-router-dom'
-import "./solapas.css";
+import "../mesas/solapas.css";
 
 
 export function AtencionMesasPortada() {

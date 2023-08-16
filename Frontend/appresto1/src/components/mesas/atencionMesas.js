@@ -4,7 +4,7 @@ import {
   getAllMesas,
   getAllProducts,
   incrementar,
-  postComanda,
+ // postComanda,
   decrementar,
   actualizarComandaCantidad,
   actualizarProducto,
@@ -15,9 +15,10 @@ import {
   actualizarItemsTotal,
   limpiarEstados,
   itemSelection,
-} from "../actions";
+ // clearProductsSelector,
+} from "../../actions/index.js";
 import { useDispatch, useSelector } from "react-redux";
-import "./atencionMesas.css";
+import "../mesas/atencionMesas.css";
 import { Link } from "react-router-dom";
 
 export function AtencionMesas() {
@@ -44,10 +45,13 @@ console.log('comanda',comanda)
 
   let NuevoItem = {
     cantidad: cantidad ? cantidad : 0,
-    producto: productItem ? productItem[0]._id : "",
+    producto: productItem? productItem[0]._id : "",
+    //cra en base de datos un proiducto que sea Producto y que se busque inicialmente ese
     subtotalItem: subtotalItem ? subtotalItem : 0,
   };
-
+console.log('nuevo item',NuevoItem)
+console.log('cantidad',cantidad)
+console.log('productItem',productItem)
   let ArrayItemsFinal = [];
   if (itemsTotalArray?.length > 0) {
     ArrayItemsFinal = [...itemsTotalArray];
@@ -90,6 +94,7 @@ console.log('comanda',comanda)
   }
 
   function handleProduct(e) {
+
     if (comandaFinal.mesa.length === 0) {
       alert("seleccionar mesa");
       return;
@@ -101,6 +106,28 @@ console.log('comanda',comanda)
     setProductItem(productoItem);
     dispatch(actualizarProducto(productoItem));
   }
+
+/*
+
+    let productoItem=[]
+    if(productItem.length>0){
+    productoItem=productos?.filter(
+      (el) => el.productName === e.target.value
+    )
+    }
+    else productoItem.push('producto')
+    console.log(productoItem)
+    setProductItem(productoItem);
+    dispatch(actualizarProducto(productoItem));
+  }*/
+
+
+
+
+
+
+
+
 
   function handleMesas(e) {
     dispatch(actualizarComandaMesa(e.target.value));
@@ -114,6 +141,7 @@ console.log('comanda',comanda)
   }
 
   function handleConfirmItem(e) {
+  
     e.preventDefault();
 
     if (comandaFinal.mesa.length === 0) alert("seleccionar mesa");
@@ -125,6 +153,7 @@ console.log('comanda',comanda)
       let ArraydeItems = [...itemsTotalArray, NuevoItem];
       dispatch(calcularTotal(ArraydeItems));
       dispatch(limpiarEstados(itemsTotalArray));
+     // dispatch(clearProductsSelector())
     }
   }
 
@@ -264,6 +293,7 @@ console.log('comanda',comanda)
               </tr>
             </thead>
             <tbody>
+           
               {ArrayItemsFinal.length > 0 ? (
                 ArrayItemsFinal?.map((e, index) => {
                   return (
@@ -274,11 +304,19 @@ console.log('comanda',comanda)
                           if (elem._id === e.producto) return elem.productName;
                           return null;
                         })}
+                        
                       </td>
+                
                       <td className="filaItem3">{e.subtotalItem} </td>
                     </tr>
                   );
-                })
+                }
+                
+                   
+               
+                )
+                
+
               ) : (
                 <tr className="items">
                   <td className="filaItem2"> productos</td>

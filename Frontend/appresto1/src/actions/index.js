@@ -71,6 +71,15 @@ export function postComanda(payload) {//USO ESTA
 }
 
 
+
+// export function clearProductsSelector() {//USO ESTA
+//     return async function (dispatch) {
+       
+//         return dispatch({ type: 'CLEAR_PRODUCTS_SELECTOR', payload: [] })
+//     }
+// }
+
+
 export function actualizarComandaCantidad() {
     return function (dispatch) {
         return dispatch({ type: 'ACTUALIZAR_COMANDA_CANTIDAD' })

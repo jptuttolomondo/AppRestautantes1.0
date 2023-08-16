@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import {Link} from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux';
-import {postCreateUser}from'./../actions/index.js'
-import './atencionMesas.css';
+import {postCreateUser}from'../../actions/index.js'
+import '../mesas/atencionMesas.css';
 import stylesRegister from'./register.module.css'
 
 export function Register() {

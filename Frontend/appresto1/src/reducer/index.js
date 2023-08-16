@@ -109,6 +109,9 @@ case 'DECREMENTAR_CANTIDAD':
       return { ...state, resultLogin: Number(action.status), user:state.user }
     case 'LOGOUT':
       return { ...state, resultLogin: action.payload }
+
+      // case 'CLEAR_PRODUCTS_SELECTOR':
+      //   return{...state,products:action.payload}
     default: return state
   }
 }
