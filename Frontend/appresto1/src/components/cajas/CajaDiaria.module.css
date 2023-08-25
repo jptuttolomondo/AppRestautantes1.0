@@ -3,7 +3,7 @@
     position:relative;
     width: 360px;
     height: 640px;
-    /*overflow-x: scroll;*/
+
     
     background: linear-gradient(163.28deg, rgba(206, 225, 236, 0.96) 2.17%, rgba(219, 83, 255, 0.96) 96.14%);
     border-radius: 24px;
@@ -23,14 +23,14 @@
   text-align: center;
   letter-spacing: 0.055em;
   color: #000000;
-  display: block;
+  /*display: block;*/
   }
   .caja_subtitulo{
    
     position: absolute;
     width: 130px;
     height: 42px;
-    left: 60px;
+    left: 113px;
     top: 104px;
     
     background: linear-gradient(92.33deg, #29BC1C 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
@@ -48,25 +48,14 @@
     color: #000000;
     
     }
-  .Mesas-tablaItems{
-    
-  position: absolute;
-  width: 334px;
-  height: 345px;
-  left: 13px;
-  top: 188px;
-  
-  background: #E1FF2B;
-  border-radius: 23px;
-  }
   
   
-  .MesasFecha{
+  .FechaLetraDiaria{
     position: absolute;
   width: 49px;
   height: 22px;
-  left: 201px;
-  top: 117px;
+  left: 63px;
+  top: 166px;
   
   font-family: 'Comic Sans MS';
   font-style: normal;
@@ -77,6 +66,32 @@
   color: #000000;
   
   }
+
+
+.EntradasDiaria{
+  
+position: absolute;
+width: 172px;
+height: 42px;
+left: 30px;
+top: 315px;
+background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+border: 4px solid #2D107E;
+border-radius: 23px;
+font-family: 'Comic Sans MS';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 28px;
+text-align: center;
+color: #000000;
+}
+  .EntradasDiaria:hover{
+    background: #0DE8A6;;
+    color: var(--color-bg);
+  
+  }
+
   .Mesas-hora{
     position: absolute;
   width: 42px;
@@ -92,103 +107,22 @@
   
   color: #000000;
   }
-  .Mesas-mesa{
+  .CajaInicial{
     position: absolute;
-  width: 44px;
-  height: 22px;
-  right: 38px;
-  top: 160px;
-  
-  font-family: 'Comic Sans MS';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  
-  color: #000000;
-  }
-  .Mesas-agregarPedido{
-  
-    position: absolute;
-    width: 119px;
-    height: 28px;
-    left: 0px;
-    top: 602px;
-    
+    width: 129px;
+    height: 22px;
+    left: 60px;
+    top: 241px;
     font-family: 'Comic Sans MS';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 22px;
     line-height: 22px;
-    text-align: center;
-    
     color: #000000;
-  }
+}
   
-  .Mesas-nuevaMesa{
-    position: absolute;
-  
-    width: 109px;
-    height: 22px;
-    left: 100px;
-    top: 602px;
-  font-family: 'Comic Sans MS';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  text-align: center;
-  
-  color: #000000;
-  
-  }
-  .Mesas-logo{
-    position: absolute;
-    width: 58px;
-    height: 59px;
-    left: 112px;
-    top: 540px;
-  
-    
-  }
-  .Mesas-mas{
-    position: absolute;
-  width: 68px;
-  height: 61px;
-  left: 16px;
-  top: 540px;
-  
-  background: #000000;
-  }
-  .Mesas-mas-chico{
-    position: absolute;
-  width: 10px;
-  height: 10px;
-  left: 8px;
-  top: 540px;
-  
-  background: #6a3232;
-  }
 
-  .Mesas-total{
-    position: absolute;
-  width: 106px;
-  height: 45px;
-  left: 169px;
-  top: 544px;
-  
-  font-family: 'Comic Sans MS';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 45px;
-  /* identical to box height */
-  
-  text-align: center;
-  
-  color: #0A4605;
-  
-  }
+
   .Mesas-atras{
      position: absolute;
 width: 38px;
@@ -199,6 +133,79 @@ top: 111px;
 background: #427C9D;
   }
  
+  /*.EntradasDiaria{
+    position: absolute;
+background: #427C9D;
+width: 121px;
+height: 40px;
+left: 55px;
+top: 331px;
+ }
+*/
+ .SalidasDiaria{
+  position: absolute;
+  width: 121px;
+  height: 40px;
+  left: 55px;
+  top: 437px;
+
+background: #427C9D;
+}
+.TotalesDiaria{
+  position: absolute;
+  width: 121px;
+  height: 40px;
+  left: 55px;
+  top: 538px;
+
+background: #427C9D;
+}
+
+.DescargarInforme{
+  position: absolute;
+  width: 121px;
+  height: 40px;
+  left: 190px;
+  top: 583px;
+background: #427C9D;
+}
+
+.inputFechaCaja {
+  position: absolute;
+  width: 122px;
+  height: 28px;
+  left: calc(50% - 75px/2 + 62px);
+  top:160px;
+  bottom: 132px;
+
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  /* identical to box height */
+
+  text-align: center;
+
+  background: linear-gradient(92.33deg, #C3EAEA 11.92%, rgba(151, 239, 234, 0.77) 83.97%);
+  border: 4px solid #2D107E;
+  border-radius: 23px;
+}
+
+.inputFechaCaja::placeholder {
+  text-align: center;
+  color: blue;
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.inputFechaCaja:focus {
+  border: 7px solid #1ccc42;
+  outline: none;
+}
+
   .Mesas-header {
   
   width: 360px;
@@ -219,16 +226,7 @@ background: #427C9D;
   .Mesas-link {
     color: #61dafb;
   }
-  /* hace rotar la imagen del cafe
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  */
+
   @media (prefers-reduced-motion: no-preference) {
     .Mesas-logo {
       animation: App-logo-spin infinite 20s linear;

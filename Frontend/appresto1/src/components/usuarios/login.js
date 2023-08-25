@@ -35,7 +35,7 @@ export function Login() {
           <div className="Mesas-header">
             <div className="Mesas-titulo">Aplicación para <br></br> Restaurantes/Café</div>
           </div>
-          <Link to="/home"><div className="Mesas-atras">Atras</div></Link>
+          <Link to="/"><div className="Mesas-atras">Atras</div></Link>
           <form onSubmit={(e) => handleSubmit(e)} >
             <div className="Mesas-subtitulo">Usuarios</div>
             <div className={searchBarStyle.bloque}>

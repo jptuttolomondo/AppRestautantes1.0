@@ -11,7 +11,7 @@
     display: none;
   }
   /* parámetros para configurar las pestañas */
-:root {
+/*:root {
     --tabs-border-color: #ABCDEF;
     --tabs-border-size: 3px;
     --tabs-text-color: white;
@@ -19,10 +19,10 @@
     --tabs-lite-color: #345678;
     --tabs-width: 120px;
     --tabs-height: 55px;
-  }
+  }*/
   
   /* aspecto básico */
-  body {
+  /*body {
     font-family: sans-serif;
     line-height: 1.2;
   }
