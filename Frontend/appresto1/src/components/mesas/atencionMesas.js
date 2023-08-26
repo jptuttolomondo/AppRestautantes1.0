@@ -4,7 +4,7 @@ import {
   getAllMesas,
   getAllProducts,
   incrementar,
- // postComanda,
+ postComanda,
   decrementar,
   actualizarComandaCantidad,
   actualizarProducto,
@@ -136,7 +136,8 @@ console.log('productItem',productItem)
   function handleSubmit(e) {
     e.preventDefault();
     console.log('lista',comandaFinal)
-    // dispatch(postComanda(comandaFinal))
+    let aux= dispatch(postComanda(comandaFinal))
+console.log(aux)
     //separa confirmar comanda de handlesubmit
   }
 

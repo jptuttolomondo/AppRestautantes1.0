@@ -11,17 +11,25 @@ catch(error){
 }
 
 
-const createComanda= async (req,res)=>{
-    try{
-        const Comanda = req.body;
-Comanda["deleted"]=false
-        const result = await ComandasService.createComanda(Comanda);
-        res.send({ status: 'success', result });
+
+
+const createComanda = async (req, res) => {
+  try {
+    const Comanda = req.body;
+    const verify = await ComandasService.comandaCreatedVerify(Comanda); //si se creo una comanda con esa mesa hace menos de 5 minutos
+
+    if (verify === true)
+      res.send({ status: "Error", message: "La comanda ya esta registrada" });
+    else {
+      Comanda["deleted"] = false;
+
+      const result = await ComandasService.createComanda(Comanda);
+      res.send({ status: "success", result });
     }
-catch(error){
-    res.status(500).send({ status: 'error', message: error.message });
-}
-}
+  } catch (error) {
+    res.status(500).send({ status: "error", message: error.message });
+  }
+};
 
 const deleteComanda= async (req,res)=>{
     try{

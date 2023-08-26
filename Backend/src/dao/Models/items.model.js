@@ -7,7 +7,8 @@ const itemSchema = new Schema(
     producto: { type: mongoose.Schema.Types.ObjectId, ref: "products" },
     subtotalItem: { type: Number, required: true },
     deleted: { type: Boolean, required: true },
-    comanda: { type: Array, default: [] },
+   // comanda: { type: Array, default: [] },
+    comanda: { type:mongoose.Schema.Types.ObjectId, ref: 'Comandas' },
   },
   { timestamps: true }
 );

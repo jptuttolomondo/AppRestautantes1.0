@@ -12,7 +12,10 @@ const getComandas = async () => {
     const result = await comandasRepository.getComandas();
     return result;
 }
-
+const comandaCreatedVerify=async(comanda)=>{
+    const result = await comandasRepository.comandaCreatedVerify(comanda);
+    return result;
+}
 
 const deleteComanda = async (id) => {
     const result = await comandasRepository.deleteComanda(id);
@@ -22,5 +25,7 @@ const deleteComanda = async (id) => {
 export {
     createComanda,
     getComandas,
-    deleteComanda
+    deleteComanda,
+    comandaCreatedVerify
+
 }

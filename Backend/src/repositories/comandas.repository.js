@@ -11,6 +11,12 @@ export default class ComandasRepository {
     const result = await this.dao.getComandas();
     return result;
   };
+
+  comandaCreatedVerify=async(comanda)=>{
+    const result = await this.dao.comandaCreatedVerify(comanda);
+    return result
+  }
+
   createComanda = async (comanda) => {
 
 

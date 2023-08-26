@@ -1,12 +1,12 @@
 import {Link} from 'react-router-dom'
 import './landing.css';
-import styles from'../styles/index.module.css';
-import styles_temas from '../styles/temas.module.css'
+//import styles from'../styles/index.module.css';
+//import styles_temas from '../styles/temas.module.css'
 //import '../styles/landing.scss'
 export function Landing() {
   return (
 <div align="center">
-
+<div className="landingPage-body"></div>
       <div className="landingPage-header">
       <div className="landingPage-titulo">Aplicación para<br></br> Restaurantes/Café</div>
       </div>

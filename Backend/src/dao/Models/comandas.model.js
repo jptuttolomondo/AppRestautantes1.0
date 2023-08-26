@@ -50,6 +50,10 @@ const ComandaSchema = new Schema({
   },
   total: { type: Number, required: true },
   deleted: { type: Boolean, required: true, default: false },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
 ComandaSchema.pre("find", function () {
   this.populate("items.item");

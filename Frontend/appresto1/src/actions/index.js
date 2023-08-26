@@ -66,7 +66,8 @@ export function limpiarEstados(item) {
 export function postComanda(payload) {//USO ESTA
     return async function (dispatch) {
         var response = await axios.post('http://localhost:8080/comanda', payload)
-        return dispatch({ type: 'POST_COMANDA', payload: response.data.payload._id })
+        console.log(response)
+        return dispatch({ type: 'POST_COMANDA', payload: response.data.result })
     }
 }
 
