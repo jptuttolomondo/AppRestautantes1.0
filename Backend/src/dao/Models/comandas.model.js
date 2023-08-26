@@ -58,5 +58,9 @@ const ComandaSchema = new Schema({
 ComandaSchema.pre("find", function () {
   this.populate("items.item");
 });
+
+ComandaSchema.pre("create", function () {
+  this.populate("items.item");
+});
  const comandaModel = mongoose.model(ComandaCollections, ComandaSchema);
 export default comandaModel

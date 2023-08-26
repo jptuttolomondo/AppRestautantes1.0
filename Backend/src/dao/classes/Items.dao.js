@@ -15,6 +15,7 @@ export default class ItemsDao {
     }
 
     createItem = async (item) => {
+     
         const result = await itemModel.create(item);
         return result;
     }

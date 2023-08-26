@@ -136,8 +136,8 @@ console.log('productItem',productItem)
   function handleSubmit(e) {
     e.preventDefault();
     console.log('lista',comandaFinal)
-    let aux= dispatch(postComanda(comandaFinal))
-console.log(aux)
+     dispatch(postComanda(comandaFinal))
+
     //separa confirmar comanda de handlesubmit
   }
 

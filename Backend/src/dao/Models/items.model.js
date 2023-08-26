@@ -12,6 +12,9 @@ const itemSchema = new Schema(
   },
   { timestamps: true }
 );
+
+
+
 const itemModel = mongoose.model(itemCollections, itemSchema);
 //export { itemSchema };
 export default itemModel

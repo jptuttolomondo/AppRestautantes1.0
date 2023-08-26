@@ -14,21 +14,6 @@ catch(error){
 const createItem= async (req,res)=>{
     try{
 
-        //   try {
-     
-//     if (!cantidad||!producto||!subtotalItem)res.status(400).send({ error: "datos incompletos" });
- 
-//   let comanda=''
-//   let deleted=false
-//     const item = await itemModel.create({
-//         cantidad,producto,subtotalItem,deleted,comanda
-//     });
- 
-//     res.status(200).send({ result: "success", payload: item });
-//   } catch (error) {
-//     console.error(error); 
-//   }
-// });
         const item = req.body;
         if (!item.cantidad||!item.producto||!item.subtotalItem)res.status(400).send({ error: "datos incompletos" });
         let comanda=''

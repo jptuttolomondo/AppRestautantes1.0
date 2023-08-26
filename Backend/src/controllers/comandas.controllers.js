@@ -1,5 +1,5 @@
 import * as ComandasService from '../service/comandas.service.js'
-
+import * as  ItemsService  from '../service/items.service.js'
 const getComandas= async (req,res)=>{
     try{
         const result = await ComandasService.getComandas();
@@ -23,8 +23,10 @@ const createComanda = async (req, res) => {
     else {
       Comanda["deleted"] = false;
 
-      const result = await ComandasService.createComanda(Comanda);
-      res.send({ status: "success", result });
+      const resultComanda = await ComandasService.createComanda(Comanda);
+    
+await ItemsService.createItem(Comanda.items,resultComanda._id.toString())
+      res.send({ status: "success", resultComanda });
     }
   } catch (error) {
     res.status(500).send({ status: "error", message: error.message });

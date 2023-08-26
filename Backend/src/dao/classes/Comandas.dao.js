@@ -29,6 +29,7 @@ export default class ComandasDao {
 
   createComanda = async (comanda) => {
     const result = await comandaModel.create(comanda);
+    
     return result;
   };
   updateComanda = async (id, comanda) => {
