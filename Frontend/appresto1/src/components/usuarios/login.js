@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../mesas/atencionMesas.css';
-import searchBarStyle from './login.module.css';
+import loginStyle from './login.module.css';
 import { Link } from 'react-router-dom'
 import { LoginUser } from '../../actions/index.js'
 import { Home } from '../home/home.js'
@@ -38,31 +38,31 @@ export function Login() {
           <Link to="/"><div className="Mesas-atras">Atras</div></Link>
           <form onSubmit={(e) => handleSubmit(e)} >
             <div className="Mesas-subtitulo">Usuarios</div>
-            <div className={searchBarStyle.bloque}>
-              <div className={searchBarStyle.usuarioTexto}  >Usuario: </div>
-              <input className={searchBarStyle.inputLogin}
+            <div className={loginStyle.bloque}>
+              <div className={loginStyle.usuarioTexto}  >Usuario: </div>
+              <input className={loginStyle.inputLogin}
                 type='text'
                 value={user.username}
                 name='username'
                 placeholder='Usuario..'
                 onChange={handleChange}
               />
-              <div className={searchBarStyle.contraseñatexto}  >Contraseña: </div>
+              <div className={loginStyle.contraseñatexto}  >Contraseña: </div>
               <input
-                className={searchBarStyle.inputPassword}
+                className={loginStyle.inputPassword}
                 type='password'
                 value={user.password}
                 name='password'
                 placeholder='Contraseña...'
                 onChange={handleChange}
               />
-              <button className={searchBarStyle.botonLogin}
+              <button className={loginStyle.botonLogin}
                 type='submit'
                 onClick={(e) => handleSubmit(e)}
               >Login</button>
             </div>
           </form>
-          <Link to='/register'><div className={searchBarStyle.botonRegister} >Registrarse </div></Link>
+          <Link to='/register'><div className={loginStyle.botonRegister} >Registrarse </div></Link>
         </div>
       </div>
   );

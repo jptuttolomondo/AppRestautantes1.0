@@ -153,8 +153,9 @@ export function actualizarComanda(payload, idComanda) {//USO ESTA
 
 export function postCreateUser(payload) {
     return async function (dispatch) {
-        var response = await axios.post('http://localhost:8080/user', payload)
+        var response = await axios.post('http://localhost:8080/register', payload)
         console.log(response.data)
+    
         return dispatch({ type: 'CREAR_USUARIO', payload: response.data })
     }
 }

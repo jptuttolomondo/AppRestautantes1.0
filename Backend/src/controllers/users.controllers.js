@@ -61,13 +61,10 @@ catch(error){
 
 
 
-
 export {
     getUsers,
     deleteUser,
     createUser,
- //   getNameMozo,
     getUserById,
-
 }
 

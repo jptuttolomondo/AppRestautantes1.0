@@ -17,7 +17,7 @@ import './App.css';
 
 function App() {
   return (      
-   <div >
+
         
          <Routes>
                 <Route  path="/" element={<Landing/>} > </Route>
@@ -36,8 +36,7 @@ function App() {
                 <Route exact path="/TotalesDiaria" element={<TotalesDiaria/>} > </Route>
           
           </Routes>
-
-     </div>    
+   
      );
 } 
 export default App;

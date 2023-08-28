@@ -13,9 +13,10 @@ const logoutUser = async (req, res) => {
 const loginUser = async (req, res) => {
   try {
     let { username, password } = req.body;
+
     username = username.trim();
     password = password.trim();
-
+   
     if (!username && !password)
       return res
         .status(400)
@@ -32,11 +33,11 @@ const loginUser = async (req, res) => {
         .status(400)
         .send({ status: "warning", warning: "Debes ingresar la contraseña" });
     const user = await usersService.getUserByUsername(username);
-    if (!user)
+    if (user.length===0)
       return res
         .status(201)
         .send({ status: "error", error: "Usuario no registrado" });
-    if (password !== password)
+    if (password !== user.password)
       return res
         .status(201)
         .send({ status: "error", error: "Contraseña incorrecta" });

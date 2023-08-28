@@ -32,6 +32,7 @@ export default class UsersDao {
     }
     getUserByUsername= async (username) => {
         const result = await userModel.find({username: username});
-        return result;
+          return result;
     }
+ 
 }
