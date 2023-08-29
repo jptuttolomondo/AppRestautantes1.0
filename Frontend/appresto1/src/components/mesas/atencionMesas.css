@@ -110,93 +110,118 @@
   }
 
 .Mesas-boton-cantidad-mas{
+position: absolute;
+    width: 47px;
+    height: 29px;
+    left: 9px;
+    top: 140px;
+    background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+    border: 2px solid #2D107E;
+    border-radius: 15px;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+}
 
-    position: absolute;
-width: 22px;
-height: 22px;
-left: 12px;
-top: 148px;
-
-background: #427C9D;
- 
+.Mesas-boton-cantidad-mas:hover{
+  background: #0DE8A6;
+  color: var(--color-bg);
 }
 
 .Mesas-boton-cantidad-menos{
-
-  position: absolute;
-width: 22px;
-height: 22px;
-left: 39px;
-top: 148px;
-
-background: #427C9D;
-
+position: absolute;
+    width: 47px;
+    height: 29px;
+    left: 58px;
+    top: 140px;
+    background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+    border: 2px solid #2D107E;
+    border-radius: 15px;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+}
+.Mesas-boton-cantidad-menos:hover{
+  background: #0DE8A6;
+  color: var(--color-bg);
 }
 
-
 .Mesas-cantidad{
-
   position: absolute;
   width: 168px;
   height: 61px;
   left: 16px;
   top: 540px;
-  
   background: #000000;
 }
   .Mesas-producto{
     position: absolute;
     width: 379px;
     height: 22px;
-    right:14px;
+    right:-11px;
     top: 160px;
-    
     font-family: 'Comic Sans MS';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    
     color: #000000;
   }
+  .box-producto {
 
+      width: 126px;
+      padding: 3px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      background-color: #3d838e;
+      color: #151414;
+   
+  }
+  .box-producto:hover,box-producto:focus{
+    background: #0DE8A6;
+    color: var(--color-bg);
+  }
+  .box-mesa {
 
-
+    width: 51px;
+    padding: 3px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #3d838e;
+    color: #151414;
+ 
+}
+.box-mesa:hover,box-mesa:focus{
+  background: #0DE8A6;
+  color: var(--color-bg);
+}
+ 
   .Mesas-agregarPedido{
-  
     position: absolute;
     width: 119px;
     height: 28px;
     left: 0px;
     top: 602px;
-    
     font-family: 'Comic Sans MS';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
     text-align: center;
-    
     color: #000000;
   }
   
-  .Mesas-nuevaMesa{
-    position: absolute;
-  
-    width: 109px;
-    height: 22px;
-    left: 100px;
-    top: 602px;
-  font-family: 'Comic Sans MS';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  text-align: center;
-  
-  color: #000000;
-  
-  }
+
   .Mesas-logo{
     position: absolute;
     width: 58px;
@@ -218,13 +243,128 @@ background: #427C9D;
 
   }
 .BorrarItem{
+
   position: absolute;
-  width: 39px;
-  height: 61px;
-  left: 16px;
-  top: 588px;
-  
+    width: 68px;
+    height: 29px;
+    left: 9px;
+    top: 104px;
+    background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+    border: 2px solid #2D107E;
+    border-radius: 15px;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 17px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+
 }
+
+.BorrarItem-button{
+
+  position: absolute;
+    width: 122px;
+    height: 29px;
+    left: 10px;
+    top: 538px;
+    background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+    border: 2px solid #2D107E;
+    border-radius: 15px;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 17px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+    padding-top: 0px;
+
+}
+
+.BorrarItem-button:hover{
+  background: #0DE8A6;
+  color: var(--color-bg);
+}
+
+.nuevaComanda-button{
+  position: absolute;
+  width: 90px;
+  height: 29px;
+  left: 231px;
+  top: 604px;
+  background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+  border: 2px solid #2D107E;
+  border-radius: 15px;
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 100;
+  font-size: 10px;
+  line-height: 28px;
+  text-align: center;
+  color: #000000;
+  padding-top: 0px;
+
+}
+.nuevaComanda-button:hover{
+  background: #0DE8A6;
+  color: var(--color-bg);
+}
+
+.confirmarItem-button{
+
+  position: absolute;
+    width: 151px;
+    height: 29px;
+    left: 10px;
+    top: 571px;
+    background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+    border: 2px solid #2D107E;
+    border-radius: 15px;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 17px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+    padding-top: 0px;
+
+}
+
+.confirmarItem-button:hover{
+  background: #0DE8A6;
+  color: var(--color-bg);
+}
+
+.confirmarComanda-button{
+
+  position: absolute;
+    width: 185px;
+    height: 29px;
+    left: 10px;
+    top: 605px;
+    background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+    border: 2px solid #2D107E;
+    border-radius: 15px;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 17px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+    padding-top: 0px;
+
+}
+
+.confirmarComanda-button:hover{
+  background: #0DE8A6;
+  color: var(--color-bg);
+}
+
+
 .Mesas-nuevoItem{
   position: absolute;
   width: 68px;
@@ -268,12 +408,12 @@ background: #427C9D;
   width: 106px;
   height: 45px;
   left: 169px;
-  top: 544px;
+  top: 526px;
   
   font-family: 'Comic Sans MS';
   font-style: normal;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 28px;
   line-height: 45px;
   /* identical to box height */
   
@@ -287,7 +427,7 @@ background: #427C9D;
 width: 45px;
 height: 22px;
 left: 209px;
-top: 602px;
+top: 569px;
 
 font-family: 'Comic Sans MS';
 font-style: normal;
@@ -299,18 +439,19 @@ text-align: center;
 color: #000000;
   }
   .Mesas-atras{
-     position: absolute;
+   position: absolute;
 width: 38px;
 height: 35px;
 left: 12px;
 top: 111px;
+font-family: 'Comic Sans MS';
+color: #000000;
 
-background: #427C9D;
   }
  
 .encabezadoItems{
   /*position: absolute;*/
-  width: 335px;
+  width: 323px;
   height: 29px;
   left: 14px;
   top: 186px;
@@ -321,22 +462,17 @@ background: #427C9D;
 }
 .productoEncabezado{
   
-position: absolute;
-width: 42px;
-height: 14px;
-left: 165px;
-top: 193px;
-
-font-family: 'Comic Sans MS';
-font-style: italic;
-font-weight: 700;
-font-size: 10px;
-line-height: 14px;
-/* identical to box height */
-
-text-align: center;
-
-color: #000000;
+  position: absolute;
+  width: 123px;
+  height: 22px;
+  right: 147px;
+  top: 136px;
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 22px;
+  color: #000000;
 }
 .subtotalEncabezado{
   position: absolute;
@@ -519,39 +655,43 @@ color: #000000;
 
 }
 
+.volver:hover{
+  background: #0DE8A6;
+  color: var(--color-bg);
+
+}
+.volver{
+    position: absolute;
+    width: 68px;
+    height: 29px;
+    left: 9px;
+    top: 104px;
+    background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+    border: 2px solid #2D107E;
+    border-radius: 15px;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 17px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+}
+
   .Mesas-header {
-  
   width: 360px;
   height: 97px;
-  
   background: conic-gradient(from 180deg at 50% 50%, #FF8A00 0deg, rgba(193, 64, 239, 0.96) 228.75deg, #FF8A00 360deg);
   border-radius: 23px;
-  
-  /* Inside auto layout */
-  
   flex: none;
   order: 0;
   flex-grow: 0;
   position:flex;
-  
   }
-  
-  .Mesas-link {
+    .Mesas-link {
     color: #61dafb;
   }
-/*--------------------------------------------------------------------------------*/
 
-/*----------------------------------------------------------------*/
-  /* hace rotar la imagen del cafe
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  */
   @media (prefers-reduced-motion: no-preference) {
     .Mesas-logo {
       animation: App-logo-spin infinite 20s linear;

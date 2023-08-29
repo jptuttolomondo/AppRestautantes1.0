@@ -1,9 +1,6 @@
 import {Link} from 'react-router-dom'
 import './landing.css';
-//import '../mesas/atencionMesas.css';
-//import styles from'../styles/index.module.css';
-//import styles_temas from '../styles/temas.module.css'
-//import '../styles/landing.scss'
+
 export function Landing() {
   return (
 <div align="center">

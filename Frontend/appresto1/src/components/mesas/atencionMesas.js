@@ -6,7 +6,7 @@ import {
   incrementar,
  postComanda,
   decrementar,
-  actualizarComandaCantidad,
+  //actualizarComandaCantidad,
   actualizarProducto,
   calcularSubtotal,
   actualizarComandaMesa,
@@ -16,7 +16,7 @@ import {
   limpiarEstados,
   itemSelection,
  // clearProductsSelector,
-} from "../../actions/index.js";
+} from "../../actions/mesas.actions.js";
 import { useDispatch, useSelector } from "react-redux";
 import "../mesas/atencionMesas.css";
 import { Link } from "react-router-dom";
@@ -25,19 +25,18 @@ export function AtencionMesas() {
   let fecha = new Date();
 
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
-  // const idComanda = useSelector((state) => state.idComanda)
-   const comanda = useSelector((state) => state.comanda)
-  const mesas = useSelector((state) => state.mesas);
-  const MesaComanda = useSelector((state) => state.MesaComanda);
-  const cantidad = useSelector((state) => state.cantidadItem);
-  const itemsTotalArray = useSelector((state) => state.itemsTotal);
-  const total = useSelector((state) => state.total);
-  const subtotalItem = useSelector((state) => state.subtotalItem);
-  const productos = useSelector((state) => state.products);
-  const itemSelect = useSelector((state) => state.itemSelected);
+  const user = useSelector((state) => state.loginReducer.user);
+  const mesas = useSelector((state) => state.mesasReducer.mesas);
+  const MesaComanda = useSelector((state) => state.mesasReducer.MesaComanda);
+  const cantidad = useSelector((state) => state.mesasReducer.cantidadItem);
+  const itemsTotalArray = useSelector((state) => state.mesasReducer.itemsTotal);
+  const total = useSelector((state) => state.mesasReducer.total);
+  const subtotalItem = useSelector((state) => state.mesasReducer.subtotalItem);
+  const productos = useSelector((state) => state.mesasReducer.products);
+  const itemSelect = useSelector((state) => state.mesasReducer.itemSelected);
+
   const [productItem, setProductItem] = useState("");
-console.log('comanda',comanda)
+
   useEffect(() => {
     dispatch(getAllMesas());
     dispatch(getAllProducts());
@@ -49,9 +48,7 @@ console.log('comanda',comanda)
     //cra en base de datos un proiducto que sea Producto y que se busque inicialmente ese
     subtotalItem: subtotalItem ? subtotalItem : 0,
   };
-console.log('nuevo item',NuevoItem)
-console.log('cantidad',cantidad)
-console.log('productItem',productItem)
+
   let ArrayItemsFinal = [];
   if (itemsTotalArray?.length > 0) {
     ArrayItemsFinal = [...itemsTotalArray];
@@ -74,10 +71,9 @@ console.log('productItem',productItem)
       alert("seleccionar mesa");
       return;
     }
-    dispatch(incrementar(NuevoItem.cantidad));
+   dispatch(incrementar(NuevoItem.cantidad));
     dispatch(calcularSubtotal());
-    dispatch(calcularTotal(itemsTotalArray));
-    dispatch(actualizarComandaCantidad());
+
   }
 
   function handleCantidadMenos(e) {
@@ -88,8 +84,7 @@ console.log('productItem',productItem)
     if (NuevoItem.cantidad > 0) {
       dispatch(decrementar(NuevoItem.cantidad));
       dispatch(calcularSubtotal());
-      dispatch(calcularTotal(itemsTotalArray));
-      dispatch(actualizarComandaCantidad());
+ 
     }
   }
 
@@ -107,38 +102,25 @@ console.log('productItem',productItem)
     dispatch(actualizarProducto(productoItem));
   }
 
-/*
-
-    let productoItem=[]
-    if(productItem.length>0){
-    productoItem=productos?.filter(
-      (el) => el.productName === e.target.value
-    )
-    }
-    else productoItem.push('producto')
-    console.log(productoItem)
-    setProductItem(productoItem);
-    dispatch(actualizarProducto(productoItem));
-  }*/
-
-
-
-
-
-
-
-
-
   function handleMesas(e) {
-    dispatch(actualizarComandaMesa(e.target.value));
+   
+    if(itemsTotalArray.length>0) alert(' No puede cambiar de mesa, Cree una nueva comanda')
+    else dispatch(actualizarComandaMesa(e.target.value));
   }
+
+function Confirmar(e) {
+  e.preventDefault();
+  console.log('lista',comandaFinal)
+   dispatch(postComanda(comandaFinal))
+   
+}
+
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('lista',comandaFinal)
-     dispatch(postComanda(comandaFinal))
 
-    //separa confirmar comanda de handlesubmit
+ //limpiar todos los estados de mesa, producto, items, comanda.:
+ 
   }
 
   function handleConfirmItem(e) {
@@ -199,9 +181,10 @@ console.log('productItem',productItem)
               ) {
                 datosFila1.push(fila.childNodes[j].textContent);
                 fila.childNodes[j].style.background = "red";
-                dispatch(itemSelection(datosFila1));
+                           
               }
             }
+            dispatch(itemSelection(datosFila1));
           }
         });
       }
@@ -235,7 +218,7 @@ console.log('productItem',productItem)
           </div>
         </div>
         <Link to="/home">
-          <div className="Mesas-atras">Atras</div>
+          <div className="volver">Volver</div>
         </Link>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className="Mesas-tablaItems"></div>
@@ -249,7 +232,7 @@ console.log('productItem',productItem)
           </div>
           <div className="Mesas-mesa">
             Mesa:
-            <select onChange={(e) => handleMesas(e)} className="Mesas">
+            <select className="box-mesa" onChange={(e) => handleMesas(e)} >
               <option value="seleccionar">sel</option>
               {mesas?.map((el) => (
                 <option value={el.mesa} key={el._id}>
@@ -263,7 +246,7 @@ console.log('productItem',productItem)
               className="Mesas-boton-cantidad-mas"
               onClick={(e) => handleCantidadMas(e)}
             >
-              +
+          ↑↑
             </button>{" "}
           </div>
           <div>
@@ -271,12 +254,13 @@ console.log('productItem',productItem)
               className="Mesas-boton-cantidad-menos"
               onClick={(e) => handleCantidadMenos(e)}
             >
-              -
+              ↓↓
             </button>
-          </div>
+          </div>    
+          <div className="productoEncabezado">Producto:</div> 
           <div className="Mesas-producto">
-            Producto:
-            <select onChange={(e) => handleProduct(e)}>
+       
+            <select className="box-producto"onChange={(e) => handleProduct(e)}>
               <option value="seleccionar">Productos</option>
               {productos?.map((el) => (
                 <option value={el.productName} key={el._id}>
@@ -327,20 +311,16 @@ console.log('productItem',productItem)
           </table>
           {seleccionar()}
           <div className="Mesas-total">Total:{total}</div>
-          <div className="Mesas-mas">
-            <button onClick={(e) => handleConfirmItem(e)}>
+       
+            <button className="confirmarItem-button"onClick={(e) => handleConfirmItem(e)}>
               Confirmar Item
             </button>
-          </div>
-          <div className="BorrarItem">
-            <button onClick={(e) => handleBorrarItem(e)}>Borrar Item</button>
-          </div>
-          <div className="Mesas-logo">
-            <button type="submit" onClick={(e) => handleSubmit(e)}>
-              confirmar
+              <button className="BorrarItem-button" onClick={(e) => handleBorrarItem(e)}>Borrar Item</button>
+              <button className="confirmarComanda-button"type="submit" onClick={(e) => Confirmar(e)}>
+              Confirmar Comanda
             </button>
-          </div>
-          <div className="Mozo">Mozo:{user?.firstName} </div>
+           <div className="Mozo">Mozo:{user?.firstName} </div>
+           <button className="nuevaComanda-button"type="submit" onClick={(e) => handleSubmit(e)}>Nueva Comanda</button>
         </form>
       </div>
     </div>

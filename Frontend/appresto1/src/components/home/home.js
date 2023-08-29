@@ -1,19 +1,10 @@
 import './home.css';
 import {Link}from 'react-router-dom';    
-//import { LoginUser } from '../../actions/index.js';
-//import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import {Login}from '../usuarios/login.js'
-//import { AtencionMesas } from '../mesas/atencionMesas.js';
+
 export function Home() {
-const resultLogin=useSelector((state)=>state.resultLogin)
-
-
-// useEffect(()=>{
-
-
-// },[])
-
+const resultLogin=useSelector((state)=>state.loginReducer.resultLogin)
 
 
   return (

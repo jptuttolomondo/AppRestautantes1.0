@@ -2,13 +2,14 @@ import { useState } from 'react';
 import '../mesas/atencionMesas.css';
 import loginStyle from './login.module.css';
 import { Link } from 'react-router-dom'
-import { LoginUser } from '../../actions/index.js'
+import { LoginUser } from '../../actions/login.actions.js'
 import { Home } from '../home/home.js'
 import { useDispatch, useSelector } from 'react-redux';
 
 export function Login() {
   const dispatch = useDispatch()
-  const resultLogin = useSelector((state) => state.resultLogin)
+  const resultLogin = useSelector((state) => state.loginReducer.resultLogin)
+
   //const usuario = useSelector((state) => state.user)
   const [user, setUser] = useState({
     username: '',

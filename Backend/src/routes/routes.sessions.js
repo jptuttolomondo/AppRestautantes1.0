@@ -125,17 +125,19 @@ router.get('/logout', (req, res) => {
 
 
 import { Router } from "express";
-
+import { authToken } from "../utils/utils.js";
 const router = Router();
 
 import{ 
 loginUser,
-logoutUser
+logoutUser,
+currentUser
   
 }from '../controllers/sessions.controllers.js'
 
 router.get('/logout',logoutUser)
 router.post('/login',loginUser)
+router.get('/current',authToken,currentUser)
 
 
 

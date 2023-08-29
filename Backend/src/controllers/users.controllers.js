@@ -1,5 +1,5 @@
 import * as usersService from '../service/users.service.js'
-
+import {generateToken,authToken} from '../utils/utils.js'
 const getUsers= async (req,res)=>{
     try{
         const result = await usersService.getUsers();
@@ -15,9 +15,13 @@ const createUser= async (req,res)=>{
     try{
         const user = req.body;
        const result = await usersService.createUser(user);
-       if (result.error)  res.status(201).send({ status: 'error', message: result.error})
-       else  res.status(200).send({ status: 'success', message:'usuario creado correctamente',result });
+
+       if (result.error)  res.status(201).send({ status: 'error', message: result.error})       
+     
+       else   {const accessToken = generateToken(user) 
+        res.status(200).send({ status: 'success',access_token: accessToken , message:'usuario creado correctamente',result });
         }
+    }
 catch(error){ res.status(500).send({ status: 'error', message: error.message })}
 }
 

@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { postCreateUser } from "../../actions/index.js";
+import { postCreateUser } from '../../actions/register.actions.js'
 import "../mesas/atencionMesas.css";
 import stylesRegister from "./register.module.css";
 
 export function Register() {
   const dispatch = useDispatch();
-  const resultCreateUser = useSelector((state) => state.resultCreateUser);
+  const resultCreateUser = useSelector((state) => state.registerReducer.resultCreateUser);
   const [errors, setErrors] = useState({});
   const [input, setInput] = useState({
     firstName: "",
