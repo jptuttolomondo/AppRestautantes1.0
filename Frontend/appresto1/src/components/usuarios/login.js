@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import '../mesas/atencionMesas.css';
-import loginStyle from './login.module.css';
+import '../styles/atencionMesas.css';
+import loginStyle from '../styles/login.module.css';
 import { Link } from 'react-router-dom'
 import { LoginUser } from '../../actions/login.actions.js'
 import { Home } from '../home/home.js'

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import cajas from './CajaDiaria.module.css';
+import cajas from '../styles/CajaDiaria.module.css';
 import {Link} from 'react-router-dom'
 export function CajaDiaria() {
 

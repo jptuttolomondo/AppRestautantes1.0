@@ -1,39 +1,28 @@
 import { useEffect, useState } from "react";
-//ver actualizarArrayItems , clearMessages,actualizarComanda,  getComandaId
-import {
-  getAllMesas,
-  getAllProducts,
-  incrementar,
- postComanda,
-  decrementar,
-  //actualizarComandaCantidad,
-  actualizarProducto,
-  calcularSubtotal,
-  actualizarComandaMesa,
-  calcularTotal,
-  confirmarItem,
-  actualizarItemsTotal,
-  limpiarEstados,
-  itemSelection,
- // clearProductsSelector,
-} from "../../actions/mesas.actions.js";
-import { useDispatch, useSelector } from "react-redux";
-import "../mesas/atencionMesas.css";
+import { useDispatch} from "react-redux";
+import "../styles/atencionMesas.css" 
 import { Link } from "react-router-dom";
+import {  getAllMesas,  getAllProducts,  incrementar, postComanda,  decrementar,  actualizarProducto,
+  calcularSubtotal,  actualizarComandaMesa,  calcularTotal,  confirmarItem,  actualizarItemsTotal,
+  limpiarEstados,  itemSelection,  clearAllStates} from "../../actions/mesas.actions.js";
+import {  useUserSelector, useMesasSelector,  useMesaComandaSelector,  useCantidadSelector,
+  useItemsTotalArraySelector,  useSubtotalItemSelector,  useProductosSelector,  useItemSelectSelector,
+  useTotalSelector} from "../../selectors/mesas.selectors.js";
+
 
 export function AtencionMesas() {
   let fecha = new Date();
 
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.loginReducer.user);
-  const mesas = useSelector((state) => state.mesasReducer.mesas);
-  const MesaComanda = useSelector((state) => state.mesasReducer.MesaComanda);
-  const cantidad = useSelector((state) => state.mesasReducer.cantidadItem);
-  const itemsTotalArray = useSelector((state) => state.mesasReducer.itemsTotal);
-  const total = useSelector((state) => state.mesasReducer.total);
-  const subtotalItem = useSelector((state) => state.mesasReducer.subtotalItem);
-  const productos = useSelector((state) => state.mesasReducer.products);
-  const itemSelect = useSelector((state) => state.mesasReducer.itemSelected);
+  const user = useUserSelector()
+  const mesas = useMesasSelector()
+  const MesaComanda =useMesaComandaSelector()
+  const cantidad = useCantidadSelector()
+  const itemsTotalArray = useItemsTotalArraySelector()
+  const total =useTotalSelector()
+  const subtotalItem =  useSubtotalItemSelector()
+  const productos = useProductosSelector()
+  const itemSelect = useItemSelectSelector()
 
   const [productItem, setProductItem] = useState("");
 
@@ -60,12 +49,13 @@ export function AtencionMesas() {
   let comandaFinal = {
     date: fecha,
     mesa: MesaComanda ? MesaComanda : "",
-    estado: "PENDIENTE",
+    estado: "TOMADO",
     mozo: user?._id,
     total: total ? total : 0,
     items: itemsTotalArray ? itemsTotalArray : [],
   };
 
+  
   function handleCantidadMas(e) {
     if (comandaFinal.mesa.length === 0) {
       alert("seleccionar mesa");
@@ -116,11 +106,12 @@ function Confirmar(e) {
 }
 
 
-  function handleSubmit(e) {
+  function handleNuevaComanda(e) {
     e.preventDefault();
+  dispatch(clearAllStates())
+  dispatch(getAllMesas());
+  dispatch(getAllProducts());
 
- //limpiar todos los estados de mesa, producto, items, comanda.:
- 
   }
 
   function handleConfirmItem(e) {
@@ -220,7 +211,7 @@ function Confirmar(e) {
         <Link to="/home">
           <div className="volver">Volver</div>
         </Link>
-        <form onSubmit={(e) => handleSubmit(e)}>
+    
           <div className="Mesas-tablaItems"></div>
           <div className="Mesas-fecha">Fecha:{fecha.toLocaleDateString()}</div>
           <div className="Mesas-hora">
@@ -316,12 +307,12 @@ function Confirmar(e) {
               Confirmar Item
             </button>
               <button className="BorrarItem-button" onClick={(e) => handleBorrarItem(e)}>Borrar Item</button>
-              <button className="confirmarComanda-button"type="submit" onClick={(e) => Confirmar(e)}>
+              <button className="confirmarComanda-button"onClick={(e) => Confirmar(e)}>
               Confirmar Comanda
             </button>
            <div className="Mozo">Mozo:{user?.firstName} </div>
-           <button className="nuevaComanda-button"type="submit" onClick={(e) => handleSubmit(e)}>Nueva Comanda</button>
-        </form>
+           <button className="nuevaComanda-button"type="submit" onClick={(e) => handleNuevaComanda(e)}>Nueva Comanda</button>
+    
       </div>
     </div>
   );

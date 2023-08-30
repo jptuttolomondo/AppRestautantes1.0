@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { getAllProducts,getAllcategories } from "../../actions/index.js";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "./../../utils/card.js";
-import portada from "./atencionMesasPortada.module.css";
+import portada from "../styles/atencionMesasPortada.module.css";
 import {Link} from 'react-router-dom'
-import "../mesas/solapas.css";
+import "../styles/solapas.css";
 
 
 export function AtencionMesasPortada() {

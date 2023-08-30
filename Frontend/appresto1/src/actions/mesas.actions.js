@@ -20,7 +20,7 @@ export const INCREMENTAR_CANTIDAD='INCREMENTAR_CANTIDAD'
 export const DECREMENTAR_CANTIDAD='DECREMENTAR_CANTIDAD'
 export const LIMPIAR_ESTADOS='LIMPIAR_ESTADOS'
 export const CLEAR_MESSAGES='CLEAR_MESSAGES'
-
+export const CLEAR_ALL_STATES='CLEAR_ALL_STATES'
 
 export function itemSelection (payload) {
   
@@ -177,8 +177,17 @@ export function limpiarEstados(item) {
     }
 }
 
+
+export function clearAllStates() {
+    return function (dispatch) {
+        return dispatch({ type: CLEAR_ALL_STATES })
+    }
+}
+
+
 export function clearMessages() {
     return function (dispatch) {
         return dispatch({ type: CLEAR_MESSAGES, payload: [] })
     }
 }
+

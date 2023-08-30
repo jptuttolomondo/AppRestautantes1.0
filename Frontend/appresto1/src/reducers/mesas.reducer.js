@@ -12,6 +12,7 @@ import {
   INCREMENTAR_CANTIDAD,
   DECREMENTAR_CANTIDAD,
   LIMPIAR_ESTADOS,
+  CLEAR_ALL_STATES
 } from "../actions/mesas.actions.js";
 
 const initialState = {
@@ -63,6 +64,22 @@ const mesasReducer = (state = initialState, action) => {
     case LIMPIAR_ESTADOS:
       return { ...state, productoItem: [], cantidadItem: [], subtotalItem: [] };
 
+    
+
+      case   CLEAR_ALL_STATES:
+        return { ...state,  
+           products: [],
+          mesas: [],
+          productoItem: [],
+          precioItem: [],
+          cantidadItem: [],
+          subtotalItem: [],
+          total: [0],
+          PostComanda: [],
+          MesaComanda: [],
+          itemsTotal: [],
+          itemSelected: [],
+         };
     case POST_COMANDA:
       return { ...state, PostComanda: action.payload };
 
