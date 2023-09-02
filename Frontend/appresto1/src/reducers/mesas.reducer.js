@@ -27,6 +27,7 @@ const initialState = {
   MesaComanda: [],
   itemsTotal: [],
   itemSelected: [],
+  comandaCreada:[],
 };
 
 const mesasReducer = (state = initialState, action) => {
@@ -81,7 +82,7 @@ const mesasReducer = (state = initialState, action) => {
           itemSelected: [],
          };
     case POST_COMANDA:
-      return { ...state, PostComanda: action.payload };
+      return { ...state, PostComanda: action.payload, comandaCreada:[1] };
 
     case ACTUALIZAR_ITEMS_TOTAL:
       return { ...state, itemsTotal: [...action.payload] };

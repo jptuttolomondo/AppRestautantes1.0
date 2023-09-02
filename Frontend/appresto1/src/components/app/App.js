@@ -13,7 +13,7 @@ import {Register}from '../usuarios/register.js'
 import {EntradasDiaria}from '../cajas/EntradasDiaria/Entradas.Diaria.js'
 import {SalidasDiaria}from '../cajas/SalidasDiaria/Salidas.Diaria.js'
 import {TotalesDiaria}from '../cajas/TotalesDiaria/Totales.Diaria.js'
-import '../styles/App.css';
+import '../styles/App.css'
 
 function App() {
   return (      

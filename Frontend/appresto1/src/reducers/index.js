@@ -8,7 +8,7 @@ import landingReducer from './landing.reducer.js';
 import loginReducer from './login.reducer.js';
 import registerReducer from './register.reducer.js';
 import usersReducer from './users.reducer.js';
-
+import cocinaReducer from './cocina.reducer.js'
 
 const rootReducer = combineReducers({
   mesasReducer: mesasReducer,
@@ -18,7 +18,8 @@ const rootReducer = combineReducers({
   landingReducer:landingReducer,
   loginReducer :loginReducer ,
   registerReducer:registerReducer,
-  usersReducer:usersReducer
+  usersReducer:usersReducer,
+  cocinaReducer:cocinaReducer
 });
 
 export default rootReducer;

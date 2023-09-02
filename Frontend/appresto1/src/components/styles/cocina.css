@@ -40,3 +40,43 @@ color: #000000;
     background: #E1FF2B;
     border-radius: 23px;
     }
+
+  
+      .cocina-hora{
+        position: relative;
+      width:324px;
+      height: 22px;
+      left: -519px;
+      top: 191px;
+      
+      font-family: 'Comic Sans MS';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 22px;
+      
+      color: #000000;
+      }
+    .cocina-volver:hover{
+        background: #0DE8A6;
+        color: var(--color-bg);
+      
+      }
+      .cocina-volver{
+          position: relative;
+          width: 68px;
+          height: 29px;
+          left: -594px;
+          top: 275px;
+          background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+          border: 2px solid #2D107E;
+          border-radius: 15px;
+          font-family: 'Comic Sans MS';
+          font-style: normal;
+          font-weight: 100;
+          font-size: 17px;
+          line-height: 28px;
+          text-align: center;
+          color: #000000;
+      }
+      

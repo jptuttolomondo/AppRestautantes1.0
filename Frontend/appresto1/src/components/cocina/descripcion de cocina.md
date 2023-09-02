@@ -13,4 +13,11 @@ COMO USUARIO PUEDO MODIFICAR EL ESTADO DE LA COMANDA A PREPARANDO Y LUEGO DE PRE
       "MODIFICADO",
       "LISTO PARA SERVIR",
     ],
-    
+
+panel de comandas:
+como usuario puedo ver el pedido que levanto el mozo, aparece la comanda en cocina.
+como usuarios puedo ver el listado de cards de coamndas oredenadas por momento de creación, 
+como usuario puedo gacer click en una comanda y ver el detalle del pedoido. click para cerrar
+como usuario puedo cambiar ele estado de la comanda a preparando, y a listo para servir
+como usuario puedo cambiar de estado a proeparando en más de una comanda, pero solamente puedo cambiar de estado a listo para servir en la que esta primero en la cola.
+

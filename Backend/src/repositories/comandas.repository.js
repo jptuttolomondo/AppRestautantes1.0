@@ -24,4 +24,9 @@ export default class ComandasRepository {
     const result = await this.dao.deleteComanda(id);
     return result;
   };
+
+  getComandasForCocina = async () => {
+    const result = await this.dao.getComandasForCocina();
+    return result;
+  };
 }

@@ -10,6 +10,15 @@ catch(error){
 }
 }
 
+const getComandasForCocina= async (req,res)=>{
+    try{
+        const result = await ComandasService.getComandasForCocina();
+        res.send({ status: 'success', result });
+    }
+catch(error){
+    res.status(500).send({ status: 'error', message: error.message });
+}
+}
 
 
 
@@ -25,13 +34,13 @@ const createComanda = async (req, res) => {
 
       const resultComanda = await ComandasService.createComanda(Comanda);
     
-await ItemsService.createItem(Comanda.items,resultComanda._id.toString())
+//await ItemsService.createItem(Comanda.items,resultComanda._id.toString())
       res.send({ status: "success", resultComanda });
     }
   } catch (error) {
     res.status(500).send({ status: "error", message: error.message });
   }
-};
+}; 
 
 const deleteComanda= async (req,res)=>{
     try{
@@ -66,4 +75,4 @@ catch(error){
     res.status(500).send({ status: 'error', message: error.message });
 }
 }
-export{getComandas,createComanda,deleteComanda,modifyComanda,getComandaById}
+export{getComandas,createComanda,deleteComanda,modifyComanda,getComandaById,getComandasForCocina}

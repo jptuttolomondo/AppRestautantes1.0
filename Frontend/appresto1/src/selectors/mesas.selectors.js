@@ -9,3 +9,4 @@ export const useTotalSelector = ()=>useSelector((state) => state.mesasReducer.to
 export const useSubtotalItemSelector = ()=>useSelector((state) => state.mesasReducer.subtotalItem);
 export const useProductosSelector = ()=>useSelector((state) => state.mesasReducer.products);
 export const useItemSelectSelector =()=> useSelector((state) => state.mesasReducer.itemSelected);
+export const useComandaCreadaSelector =()=> useSelector((state) => state.mesasReducer.comandaCreada);

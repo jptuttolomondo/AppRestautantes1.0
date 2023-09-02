@@ -36,15 +36,16 @@ const ComandaSchema = new Schema({
     ],
     required: true,
   },
-  mozo: { type: String, required: true },
+  mozo: {    type: mongoose.Schema.Types.ObjectId, required: true ,ref: 'users' },
   items: {
     type: [
-      {
-        item: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "items",
-        },
-      },
+        {
+            item: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'items'
+            }
+          
+        }
     ],
     default: [],
   },
@@ -56,11 +57,22 @@ const ComandaSchema = new Schema({
   }
 });
 ComandaSchema.pre("find", function () {
-  this.populate("items.item");
-});
+ this.populate({
+path:'mozo',
+      model:"users"})
+      .populate({
+    path: 'items.item',
+    populate: {
+      path: 'producto',
+      model: 'products', 
+   },
+    
 
-ComandaSchema.pre("create", function () {
-  this.populate("items.item");
 });
+})
+
+ComandaSchema.pre("save", async function (next) {
+  next()
+ });
  const comandaModel = mongoose.model(ComandaCollections, ComandaSchema);
 export default comandaModel
