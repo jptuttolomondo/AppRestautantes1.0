@@ -79,4 +79,93 @@ color: #000000;
           text-align: center;
           color: #000000;
       }
+      .comanda-item {
+        display: flex; /* Esto hace que los elementos sean flexibles en línea */
+        justify-content: space-between; /* Esto distribuye el espacio entre los elementos */
+        margin: 0; /* Elimina cualquier margen predeterminado */
+        padding: 0; /* Elimina cualquier relleno predeterminado */
+        list-style: none; /* Elimina los marcadores de lista predeterminados si los hubiera */
+      }
       
+      .comanda-item div {
+        margin-right: 10px; /* Añade un espacio entre los elementos si es necesario */
+      }
+
+
+
+      .cocina-encabezadoItems{
+        position: relative;
+        width: 1149px;
+        height: 29px;
+ 
+     
+        
+        /*background: #E1DD7E;*/
+       /* border-radius: 10px;*/
+        
+      }
+
+
+
+
+ /* Alineación de los elementos dentro de las celdas */
+#tablaItems td {
+  vertical-align: middle;
+}
+
+/* Ocultar el borde izquierdo de la primera columna */
+#tablaItems td:first-child {
+  border-left: none;
+}
+
+/* Alinear el contenido de las celdas de la primera columna a la izquierda */
+#tablaItems td:first-child,
+#tablaItems th:first-child {
+  text-align: center;
+  font-size: 20px;
+}
+
+/* Estilo para los encabezados de la tabla */
+#tablaItems th {
+  background-color:#a89834;
+  color: white;
+}
+
+/* Estilo para el texto dentro de las celdas */
+#tablaItems td {
+  color: #333;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* Alinear el contenido de la última columna a la derecha */
+#tablaItems td:last-child {
+
+  font-size: 20px;
+}
+
+
+/* Estilo para filas pares */
+.fila-par {
+  background-color: #aef7e7; /* Color de fondo para filas pares */
+  height: 45px;
+}
+
+/* Estilo para filas impares */
+.fila-impar {
+  background-color: #55a0a4; /* Color de fondo para filas impares */
+  height: 45px;
+}
+
+.encabezado-tabla{
+  height: 45px;
+}
+
+.link-item{
+  width: 100px;
+}
+.fila-link {
+  text-decoration: none; /* Elimina la decoración de subrayado del enlace */
+  color: inherit; /* Hereda el color de texto del elemento padre (por defecto) */
+}

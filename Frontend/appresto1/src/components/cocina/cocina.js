@@ -1,50 +1,39 @@
-
-import React, { useState, useEffect ,useCallback} from 'react';
-
+import React, { useState, useEffect ,useCallback,useMemo} from 'react';
 import { useDispatch } from 'react-redux';
-import '../styles/cocina.css';
-import {getComandasForCocina,
-
-
+import {getComandasForCocina,PasarComanda
 }from '../../actions/cocina.actions.js'
-import{getUser} from '../../actions/login.actions.js'
-import{useUserSelector,useGetComandasForCocinaSelector}from '../../selectors/cocina.selectors.js';
-import {useComandaCreadaSelector}from '../../selectors/mesas.selectors.js';
+import{useGetComandasForCocinaSelector}from '../../selectors/cocina.selectors.js';
 import {Link}from 'react-router-dom';    
+import {convertirTiempo} from '../../utils/utils.functions.js'
+import '../styles/cocina.css';
+//import { ComandaDetail } from './comanda.detail.js';
 
 export function Cocina() {
 const dispatch=useDispatch()
-const user = useUserSelector()
 const listaComandas=useGetComandasForCocinaSelector()
-const comandaCreada=useComandaCreadaSelector()
-
-
-  const [currentDateTime, setCurrentDateTime] = useState(new Date());
-
-    const getComandasForCocina1 = useCallback(() => {
+const [currentDateTime, setCurrentDateTime] = useState(new Date());
+const getComandasForCocina1 = useCallback(() => {
     dispatch(getComandasForCocina());
   }, [dispatch]);
 
-    useEffect(() => {
+useEffect(() => {
   getComandasForCocina1()
   }, [listaComandas,getComandasForCocina1]);
 
-  useEffect(() => {
+useEffect(() => {
      const intervalId = setInterval(() => {
       setCurrentDateTime(new Date());
-
     }, 1000); // Actualizar cada segundo
-
     return () => {
       clearInterval(intervalId); // Limpia el intervalo cuando el componente se desmonta
     };
-
-
   }, []);
+//const formattedDateTime = currentDateTime.toLocaleString();
 
+const formattedDateTime = useMemo(() => {
+  return currentDateTime.toLocaleString();
+}, [currentDateTime]);
 
-
-  const formattedDateTime = currentDateTime.toLocaleString();
 
   return (
     <div align="center">
@@ -52,14 +41,40 @@ const comandaCreada=useComandaCreadaSelector()
 <div className="cocina-encabezado">Aplicación para restaurantes<br></br>Cocina</div>
 <div className="cocina-hora">{formattedDateTime} </div>
  <div className='Mesas-tablaItems-Cocina'>
-{listaComandas?.map(e=>{
-  return <div>{e.mesa}
-  </div>
+ <table className="cocina-encabezadoItems" id="tablaItems">
+            <thead className='encabezado-tabla'>
+              <tr>
+                <th >Mesa</th>
+                <th >Mozo</th>
+                <th >Tiempo transcurrido desde la toma del pedido</th>
+                <th >Estado</th>
+              </tr>
+            </thead>
+            <tbody>    
+{listaComandas?.map((e,index)=>{
+    const filaClase = index % 2 === 0 ? 'fila-par' : 'fila-impar';
+
+    function handleclick(payload){
+    dispatch(PasarComanda(payload))
+    }
+    const handleClickButton = () => {
+      handleclick(e);
+    };
+  return( 
+   
+<tr key={index}className={`fila-link ${filaClase}`}>
+
+    <td>  <Link  to={`/cocina/comanda/${e._id}`}key={index}onClick={handleClickButton}className="link-item"> 
+      {e.mesa} </Link> </td>
+    <td>{e.mozo.firstName}  </td>
+  <td> {convertirTiempo(e.date)}  </td>
+    <td> {e.estado}  </td> 
+  </tr>
+  )
 })}
-
-
+            </tbody>
+                 </table>
  </div>
-
  <Link to="/home">
           <div className="cocina-volver">Volver</div>
         </Link> 
@@ -68,5 +83,6 @@ const comandaCreada=useComandaCreadaSelector()
 
   );
 }
+
 //traer las comandas en estado tomado y modificado y mostra como listado, sin fotos
 //al terminar de preparar, boton finalizada y cambiar el estado a terminada

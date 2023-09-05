@@ -13,6 +13,7 @@ import {Register}from '../usuarios/register.js'
 import {EntradasDiaria}from '../cajas/EntradasDiaria/Entradas.Diaria.js'
 import {SalidasDiaria}from '../cajas/SalidasDiaria/Salidas.Diaria.js'
 import {TotalesDiaria}from '../cajas/TotalesDiaria/Totales.Diaria.js'
+import {ComandaDetail}from'../cocina/comanda.detail.js'
 import '../styles/App.css'
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                 <Route exact path="/EntradasDiaria" element={<EntradasDiaria/>} > </Route>
                 <Route exact path="/SalidasDiaria" element={<SalidasDiaria/>} > </Route>
                 <Route exact path="/TotalesDiaria" element={<TotalesDiaria/>} > </Route>
+                <Route exact path="/cocina/comanda/:id" element={<ComandaDetail/>} > </Route>
           
           </Routes>
    

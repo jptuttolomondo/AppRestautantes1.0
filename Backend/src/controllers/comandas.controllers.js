@@ -68,11 +68,26 @@ catch(error){
 
 const getComandaById= async (req,res)=>{
     try{
-        const { id } = req.params;
-        const result = await ComandasService.getComandaById(id);
+        const { idcomanda } = req.params;
+        const result = await ComandasService.getComandaById(idcomanda);
+        res.send({ status: 'success', result });
     }
 catch(error){
     res.status(500).send({ status: 'error', message: error.message });
 }
 }
-export{getComandas,createComanda,deleteComanda,modifyComanda,getComandaById,getComandasForCocina}
+const putComanda= async (req,res)=>{
+    try{
+        const { _idcomanda } = req.params;
+        const  comanda=req.body
+
+        const result = await ComandasService.putComanda(_idcomanda,comanda);
+        res.send({ status: 'success', result });
+    }
+catch(error){
+    res.status(500).send({ status: 'error', message: error.message });
+}
+}
+
+
+export{getComandas,createComanda,deleteComanda,modifyComanda,getComandaById,getComandasForCocina,putComanda}

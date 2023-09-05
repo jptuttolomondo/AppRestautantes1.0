@@ -8,6 +8,13 @@ const createComanda = async(comanda) => {
     return result;
 }
 
+const putComanda = async(id,comanda) => {
+  
+    const result = await comandasRepository.putComanda(id,comanda);
+    return result;
+}
+
+
 const getComandas = async () => {
     const result = await comandasRepository.getComandas();
     return result;
@@ -17,7 +24,11 @@ const getComandasForCocina = async () => {
     const result = await comandasRepository.getComandasForCocina();
     return result;
 }
-
+const getComandaById = async (id) => {
+  
+    const result = await comandasRepository.getComandaById(id);
+    return result;
+}
 const comandaCreatedVerify=async(comanda)=>{
     const result = await comandasRepository.comandaCreatedVerify(comanda);
     return result;
@@ -33,6 +44,8 @@ export {
     getComandas,
     deleteComanda,
     comandaCreatedVerify,
-    getComandasForCocina
+    getComandasForCocina,
+    getComandaById,
+    putComanda,
 
 }

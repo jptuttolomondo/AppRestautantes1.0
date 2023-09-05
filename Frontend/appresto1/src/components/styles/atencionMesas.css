@@ -460,6 +460,9 @@ color: #000000;
  /* border-radius: 10px;*/
   
 }
+.datos-tabla{
+  background-color: #2D107E;
+}
 .productoEncabezado{
   
   position: absolute;

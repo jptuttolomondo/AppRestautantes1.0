@@ -27,7 +27,9 @@ export default class ComandasDao {
 
   };
   getComandaById = async (id) => {
-    const result = await comandaModel.find({ _id: id });
+    console.log(id)
+    const result = await comandaModel.findById({ _id: id });
+    
     return result;
   };
   deleteComanda = async (id) => {
@@ -56,18 +58,10 @@ export default class ComandasDao {
 
 //   };
 createComanda = async (comanda) => {
-  // 1. Crea una comanda sin los items
   const comandaCreated = await comandaModel.create(comanda);
-
-  // 2. Inserta los items en la base de datos
   const itemsGuardados = await itemModel.insertMany(comanda.items);
-
-  // 3. Asigna los IDs de los items a la comanda
   comandaCreated.items = itemsGuardados.map((e) => ({ item: e._id }));
-
-  // 4. Guarda la comanda
   await comandaCreated.save();
-
   const finder = await comandaModel.findById(comandaCreated._id).populate({
     path: "items.item",
     populate: {
@@ -81,8 +75,9 @@ createComanda = async (comanda) => {
   return comandaCreated;
 };
 
-  updateComanda = async (id, comanda) => {
-    const result = await comandaModel.findByIdAndUpdate(id, comanda);
+  putComanda = async (id, comanda) => {
+    //console.log(id,comanda)
+    const result = await comandaModel.findOneAndUpdate({ _id: id},  comanda);
     return result;
   };
 }
