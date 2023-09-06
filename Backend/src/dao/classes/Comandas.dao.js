@@ -4,12 +4,14 @@ import itemModel from '../Models/items.model.js';
 
 export default class ComandasDao {
   getComandas = async () => {
+    console.log('find')
     const comandas = await comandaModel.find()
     return comandas;
   };
 
   getComandasForCocina = async () => {
-    const result = await comandaModel.find()
+  
+    const result = await comandaModel.find( {estado: { $in: ['PREPARANDO', 'TOMADO'] }})//find()
     return result;
   };
 

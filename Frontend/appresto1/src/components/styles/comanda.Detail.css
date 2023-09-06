@@ -1,0 +1,92 @@
+.detail_container{
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 17px;
+    line-height: 28px;
+    width: 400px;
+    height: 500px;
+    display: block;
+    border-radius: 20px;
+    background: linear-gradient(163.28deg, rgba(206, 225, 236, 0.96) 2.17%, rgba(219, 83, 255, 0.96) 96.14%);
+}
+a:-webkit-any-link {
+    color:coral;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+  .ButtonCerrar{
+      position: relative;
+      width: 68px;
+      height: 29px;
+      left:160px;
+      top: 5px;
+      background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+      border: 2px solid #2D107E;
+      border-radius: 15px;
+      font-family: 'Comic Sans MS';
+      font-style: normal;
+      font-weight: 100;
+      font-size: 17px;
+      line-height: 28px;
+      text-align: center;
+      color: #000000;
+  }
+  .ButtonCerrar:hover{
+    background: #0DE8A6;
+    color: var(--color-bg);
+  
+  }
+
+  .buttonListo:hover{
+    background: #0DE8A6;
+    color: var(--color-bg);
+  
+  }
+  .buttonListo{
+      position: relative;
+      width: auto;
+      height: auto;
+      padding: 2px;
+
+      top: 21px;
+      background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+      border: 2px solid #2D107E;
+      border-radius: 15px;
+      font-family: 'Comic Sans MS';
+      font-style: normal;
+      font-weight: 100;
+      font-size: 17px;
+      line-height: 28px;
+      text-align: center;
+      color: #000000;
+  }
+
+ .datetime{
+    position: relative;
+    top: -38px;
+    left: -93px;
+ }
+ .mesa1{
+    position: relative;
+    top: -47px;
+    left: -137px;
+ }
+ .mozo1{
+    position: relative;
+    top: -100px;
+    left: -121px;
+ }
+ .estado1{
+    position: relative;
+    top: -144px;
+    left: 35px;
+ }
+ .tiempo1{
+    position: relative;
+    top: -93px;
+    left: 27px;
+
+ 
+ }

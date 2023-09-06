@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import {  getAllMesas,  getAllProducts,  incrementar, postComanda,  decrementar,  actualizarProducto,
   calcularSubtotal,  actualizarComandaMesa,  calcularTotal,  confirmarItem,  actualizarItemsTotal,
   limpiarEstados,  itemSelection,  clearAllStates} from "../../actions/mesas.actions.js";
+import {getComandasForCocina} from'../../actions/cocina.actions.js';
 import {  useUserSelector, useMesasSelector,  useMesaComandaSelector,  useCantidadSelector,
   useItemsTotalArraySelector,  useSubtotalItemSelector,  useProductosSelector,  useItemSelectSelector,
   useTotalSelector} from "../../selectors/mesas.selectors.js";
@@ -102,6 +103,7 @@ function Confirmar(e) {
   e.preventDefault();
   console.log('lista',comandaFinal)
    dispatch(postComanda(comandaFinal))
+   dispatch(getComandasForCocina())
    
 }
 
@@ -212,7 +214,7 @@ function Confirmar(e) {
           <div className="volver">Volver</div>
         </Link>
     
-          <div className="Mesas-tablaItems"></div>
+   
           <div className="Mesas-fecha">Fecha:{fecha.toLocaleDateString()}</div>
           <div className="Mesas-hora">
             Hora:
@@ -248,7 +250,7 @@ function Confirmar(e) {
               ↓↓
             </button>
           </div>    
-          <div className="productoEncabezado">Producto:</div> 
+
           <div className="Mesas-producto">
        
             <select className="box-producto"onChange={(e) => handleProduct(e)}>
@@ -260,11 +262,13 @@ function Confirmar(e) {
               ))}
             </select>
           </div>
+          <div className="Mesas-tablaItems">
+       
           <table className="encabezadoItems" id="tablaItems">
             <thead>
               <tr>
                 <th className="cantidadEncabezado">Cantidad</th>
-                <th className="productoEncabezado">Producto</th>
+                <th className="productoEncabezadoMesas">Producto</th>
                 <th className="subtotalEncabezado">Subtotal</th>
               </tr>
             </thead>
@@ -300,6 +304,8 @@ function Confirmar(e) {
               )}
             </tbody>
           </table>
+       
+          </div>
           {seleccionar()}
           <div className="Mesas-total">Total:{total}</div>
        

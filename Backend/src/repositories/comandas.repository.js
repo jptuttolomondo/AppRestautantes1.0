@@ -5,7 +5,7 @@ export default class ComandasRepository {
     this.dao = new ComandasDao();
   }
 
-  getComandas = async () => {
+  getComandas = async () => { 
     const result = await this.dao.getComandas();
     return result;
   };

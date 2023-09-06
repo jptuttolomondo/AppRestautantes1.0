@@ -6,7 +6,7 @@ import{useGetComandasForCocinaSelector}from '../../selectors/cocina.selectors.js
 import {Link}from 'react-router-dom';    
 import {convertirTiempo} from '../../utils/utils.functions.js'
 import '../styles/cocina.css';
-//import { ComandaDetail } from './comanda.detail.js';
+
 
 export function Cocina() {
 const dispatch=useDispatch()
@@ -28,7 +28,6 @@ useEffect(() => {
       clearInterval(intervalId); // Limpia el intervalo cuando el componente se desmonta
     };
   }, []);
-//const formattedDateTime = currentDateTime.toLocaleString();
 
 const formattedDateTime = useMemo(() => {
   return currentDateTime.toLocaleString();
@@ -41,8 +40,8 @@ const formattedDateTime = useMemo(() => {
 <div className="cocina-encabezado">Aplicación para restaurantes<br></br>Cocina</div>
 <div className="cocina-hora">{formattedDateTime} </div>
  <div className='Mesas-tablaItems-Cocina'>
- <table className="cocina-encabezadoItems" id="tablaItems">
-            <thead className='encabezado-tabla'>
+ <table className="cocina-encabezadoItems" id="tablaItemsCocina">
+            <thead className='encabezado-tabla-Cocina'>
               <tr>
                 <th >Mesa</th>
                 <th >Mozo</th>
@@ -64,11 +63,11 @@ const formattedDateTime = useMemo(() => {
    
 <tr key={index}className={`fila-link ${filaClase}`}>
 
-    <td>  <Link  to={`/cocina/comanda/${e._id}`}key={index}onClick={handleClickButton}className="link-item"> 
+    <td>  <Link  to={`/cocina/comanda/${e._id}`}key={index}onClick={handleClickButton}className="whole-cell-link"> 
       {e.mesa} </Link> </td>
-    <td>{e.mozo.firstName}  </td>
-  <td> {convertirTiempo(e.date)}  </td>
-    <td> {e.estado}  </td> 
+    <td><Link  to={`/cocina/comanda/${e._id}`}key={index}onClick={handleClickButton}className="whole-cell-link"> {e.mozo.firstName}  </Link> </td>
+  <td><Link  to={`/cocina/comanda/${e._id}`}key={index}onClick={handleClickButton}className="whole-cell-link"> {convertirTiempo(e.date)} </Link> </td>
+    <td> <Link  to={`/cocina/comanda/${e._id}`}key={index}onClick={handleClickButton}className="whole-cell-link">{e.estado}  </Link></td> 
   </tr>
   )
 })}
@@ -84,5 +83,3 @@ const formattedDateTime = useMemo(() => {
   );
 }
 
-//traer las comandas en estado tomado y modificado y mostra como listado, sin fotos
-//al terminar de preparar, boton finalizada y cambiar el estado a terminada
