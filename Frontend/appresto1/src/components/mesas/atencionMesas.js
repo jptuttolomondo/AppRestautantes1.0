@@ -304,7 +304,7 @@ function Confirmar(e) {
               )}
             </tbody>
           </table>
-       
+                
           </div>
           {seleccionar()}
           <div className="Mesas-total">Total:{total}</div>

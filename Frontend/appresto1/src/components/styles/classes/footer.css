@@ -1,0 +1,5 @@
+.footer{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 3 columnas con igual ancho */
+    grid-template-rows: repeat(1, 10px); /* 2 filas con altura fija de 100px */
+}

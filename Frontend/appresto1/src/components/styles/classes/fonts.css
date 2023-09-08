@@ -1,0 +1,14 @@
+.tituloheader{
+    font-family: 'Comic Sans MS';
+font-style: normal;
+font-weight: 100;
+font-size: 5vmin;
+line-height: 8vmin;
+color: #000000;
+margin: 0;
+box-sizing: border-box;
+width:100%; /* Para que el texto ocupe todo el ancho del encabezado */
+}
+.letraTitulo{
+    font-size:3em;
+}

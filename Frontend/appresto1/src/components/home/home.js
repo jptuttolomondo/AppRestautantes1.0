@@ -1,4 +1,4 @@
-import '../styles//home.css';
+import '../styles/home.css';
 import {Link}from 'react-router-dom';    
 import { useSelector } from 'react-redux';
 import {Login}from '../usuarios/login.js'
@@ -16,6 +16,7 @@ const resultLogin=useSelector((state)=>state.loginReducer.resultLogin)
       </div>
    
 <Link to ="/mesas"><div className="landing-atencionMesas">Atención de Mesas</div></Link>
+<Link to ="/mesas/atendidas"><div className="landing-Mesas-Atendidas">Mesas Servidas</div></Link>  
 <Link to ="/cocina"><div className="landing-cocina">Cocina</div></Link>
 <Link to ="/cajaDiaria"><div className="landing-caja">Caja Diaria</div></Link>
 <div className="landing-logo"><img src="https://res.cloudinary.com/dzb1aoikl/image/upload/v1666825686/appresto/mesa_de_cafe_grande_prlqnf.svg" alt=''/></div>

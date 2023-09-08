@@ -5,29 +5,197 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grilla de Divs</title>
     <style>
-        .grid-container {
+       
+   
+        .grid-container { 
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columnas con igual ancho */
-            grid-template-rows: repeat(2, 100px); /* 2 filas con altura fija de 100px */
+            flex:1;
+            grid-template-columns: repeat(1, 1fr); /* 3 columnas con igual ancho */
+            grid-template-rows: repeat(2, 25rem); /* 2 filas con altura fija de 100px */
             gap: 10px; /* Espacio entre las celdas de la grilla */
+            height: 85vh; /* Ocupa toda la altura de la pantalla */
+  width: 100%; /* Ocupa todo el ancho del contenedor padre */
         }
+        .fondoContainer{
+            background: linear-gradient(163.28deg, rgba(206, 225, 236, 0.96) 2.17%, rgba(219, 83, 255, 0.96) 96.14%);
+            border-radius: 1em;
+        }
+        .landingPage-empresa{
+            position: relative;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 5vmin; /* Usando vmin para el tamaño de fuente */
+    line-height: 1vmin; /* Usando vmin para la altura de línea */
+    width: 90%; /* Usando un ancho relativo */
+    max-width: 8em; /* Ancho máximo para evitar que se vuelva demasiado grande */
+    max-height: 5em; /* Altura máxima */
+    background: #E3E80D;
+    border: 4px solid #2D107E;
+    border-radius: 2rem;
+    margin: 1em auto 0 auto; /* Añadido espacio superior */
+    text-align: center; /* Centramos el texto horizontalmente */
+    display: flex; /* Usamos Flexbox para centrar verticalmente */
+    align-items: center; /* Centramos verticalmente */
+    justify-content: center; /* Centramos horizontalmente */
+    box-sizing: border-box; /* Evita que los bordes aumenten el tamaño total */
+      }
 
         .grid-item {
-            background-color: #3498db;
             color: white;
-            padding: 20px;
             text-align: center;
+            display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+            padding: 1em;
         }
+
+        .header {
+            display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 2rem; /* Añadimos un margen inferior para dar espacio al contenido debajo */
+        }
+        .fondoHeader{
+     width: 100%;
+        height: 4.5em;
+        background: conic-gradient(from 180deg at 50% 50%, #FF8A00 0deg, rgba(193, 64, 239, 0.96) 228.75deg, #FF8A00 360deg);
+        border-radius: 23px;
+        }
+        .tituloheader{
+            font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 5vmin;
+    line-height: 8vmin;
+    color: #000000;
+    margin: 0;
+    box-sizing: border-box;
+    width:100%; /* Para que el texto ocupe todo el ancho del encabezado */
+        }
+        .letraTitulo{
+            font-size:3em;
+        }
+        .footer{
+            display: grid;
+            grid-template-columns: repeat(1, 1fr); /* 3 columnas con igual ancho */
+            grid-template-rows: repeat(1, 10px); /* 2 filas con altura fija de 100px */
+        }
+        .landingPage-ingreso{
+            background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+            border: 0.5rem solid #2D107E;
+            font-family: 'Comic Sans MS';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 5vmin; /* Usando vmin para el tamaño de fuente */
+            line-height: 1vmin; /* Usando vmin para la altura de línea */
+            max-width: 90%;
+            max-height: 3em; /* Altura máxima */
+            border-radius: 2rem;
+            margin: 1em auto 0 auto;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        .landingPage-logo {
+            position: relative;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+        }
+
+        .landingPage-ingreso-link {
+    text-decoration: none;
+    color: white;
+    background-color: #0D64E8;
+    padding: 10px 20px; /* Ajusta el padding según tus preferencias */
+    border: 2px solid #2D107E;
+    border-radius: 2rem;
+    font-weight: 700;
+    font-size: 5vmin;
+    line-height: 1vmin;
+;
+
+  
+    max-width: 9em;
+    max-height: 4em;
+    width: 13em;
+    text-align: center;
+    display: flex; /* Usamos flexbox */
+    align-items: center; /* Centramos verticalmente */
+    justify-content: center; /* Centramos horizontalmente */
+    box-sizing: border-box;
+}
+a.landingPage-ingreso-link {
+    text-decoration: none;
+    color: white;
+    background-color: #0D64E8;
+    padding: 10px 20px;
+    border: 0.4rem solid #2D107E;
+    border-radius: 2rem;
+    font-family:  'Comic Sans MS'; /* Cambia la fuente a Arial o la que prefieras */
+    font-weight: 700;
+    font-size: 5vmin;
+    line-height: 1vmin;
+    max-width: 12em;
+    max-height: 4em;
+    text-align: center;
+    display: flex; /* Usamos flexbox */
+    align-items: center; /* Centramos verticalmente */
+    justify-content: center; /* Centramos horizontalmente */
+    box-sizing: border-box;
+    margin: 0 auto; /* Centramos horizontalmente dentro de su contenedor */
+}
+a.landingPage-ingreso-link:hover {
+    background-color: #0DE8A6; /* Cambia el color de fondo en el hover */
+    color: white; /* Cambia el color de texto en el hover */
+    border: 2px solid #0DE8A6; /* Cambia el color del borde en el hover */
+}
+        @media (max-width: 768px) {
+            .landingPage-empresa {
+                font-size: 7vmin;
+                line-height: 2vmin; /* Cambiamos a vmin para una reducción proporcional */
+                width: 80%; 
+            }
+            .tituloheader {
+                font-size: 7vmin; /* Cambiamos el tamaño de fuente relativo */
+            }
+            .landingPage-ingreso {
+                font-size: 7vmin;
+                line-height: 2vmin; /* Cambiamos a vmin para una reducción proporcional */
+                width: 80%;
+                max-height: 2.5em; /* Altura máxima ajustada */
+            }
+            .landingPage-logo {
+                max-height: 30vh; /* Altura máxima ajustada para la imagen */
+                width: auto;
+                height: auto;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <div class="grid-container">
-        <div class="grid-item">Item 1</div>
-        <div class="grid-item">Item 2</div>
-        <div class="grid-item">Item 3</div>
-        <div class="grid-item">Item 4</div>
-        <div class="grid-item">Item 5</div>
-        <div class="grid-item">Item 6</div>
+    <div>
+    <header class="header fondoHeader tituloheader letraTitulo">Aplicación para </br> Restaurantes/Cafe
+
+    </header>
+    <div class="grid-container fondoContainer">
+
+        <div class="grid-item landingPage-empresa">El Cafecito</div>
+       
+        <a href="/logindgh" class="landingPage-ingreso-link">Ingresar</a>
+       <div class="grid-item landingPage-logo"><img src="https://res.cloudinary.com/dzb1aoikl/image/upload/v1666825686/appresto/mesa_de_cafe_grande_prlqnf.svg" alt=''/></div>
+
     </div>
+ 
+</div>
 </body>
 </html>
