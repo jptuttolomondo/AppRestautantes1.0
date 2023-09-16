@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { postCreateUser } from '../../actions/register.actions.js'
 import "../styles/atencionMesas.css";
 import stylesRegister from "../styles/register.module.css";
+import {DateSelector} from "../calendar.js"
+
 
 export function Register() {
   const dispatch = useDispatch();
@@ -20,38 +22,48 @@ export function Register() {
     inputDate: "",
     payDay: "",
   });
-
+  function formatDate(date) {
+    
+    const partes = date.split("-"); // Divide la cadena en partes usando el guion como separador
+    
+    const año = parseInt(partes[0], 10); // Convierte el año a un número entero (base 10)
+    const mes = parseInt(partes[1], 10) - 1; // Convierte el mes a un número entero (base 10) y resta 1 (los meses en JavaScript son de 0 a 11)
+    const día = parseInt(partes[2], 10); // Convierte el día a un número entero (base 10)
+    
+    const fecha = new Date(año, mes, día); 
+    return fecha
+  }
   function validate(input) {
     let errors = {};
     if (!input.firstName) {
       errors.firstName = "Nombre Valido";
     } else {
       if (!/^[A-Z]/.test(input.firstName))
-        errors.firstName = "Comenzar con mayúscula";
+        errors.firstName = "Mayúscula";
       else if (!/^[A-Z][a-z]+$/.test(input.firstName))
-        errors.firstName = "Continuar con minúsculas, sin espacios";
+        errors.firstName = "Minúsculas";
     }
     if (!input.lastName) {
       errors.lastName = "Apellido Valido";
     } else {
       if (!/^[A-Z]/.test(input.lastName))
-        errors.lastName = "Comenzar con mayúscula";
+        errors.lastName = "Mayúscula";
       else if (!/^[A-Z][a-z]+$/.test(input.lastName))
-        errors.lastName = "Continuar con minúsculas, sin espacios";
+        errors.lastName = "Minúsculas";
     }
 
     if (!input.username) errors.username = "Usuario valido";
     else {
       if (!/^[a-z]/.test(input.username))
-        errors.username = "Comenzar con minúsculas";
+        errors.username = "Minúsculas";
       else if (!/^([a-z]||[0-9])+$/.test(input.username))
-        errors.username = "Solo minúsculas y/o números";
+        errors.username = "Minúsculas/números";
     }
 
     if (!input.password) errors.password = "Contraseña válida";
     else {
       if (!/^.{6,}/.test(input.password))
-        errors.password = "Al menos 6 caracteres";
+        errors.password = "6 caracteres";
     }
 
     if (!input.address) errors.address = "Direccion válida";
@@ -64,9 +76,9 @@ export function Register() {
       errors.inputDate = "Completar fecha";
     } else {
       let fecha = new Date();
-
-      if (input.inputDate > fecha.toLocaleDateString())
-        errors.inputDate = "Ingrese fecha anterior";
+      let inputDate=formatDate(input.inputDate)
+      if (inputDate >fecha)errors.inputDate = "Fecha Ingreso"
+    
     }
 
     if (!input.dni) {
@@ -75,10 +87,10 @@ export function Register() {
       if (!/^\d{8}$/.test(input.dni)) errors.dni = "DNI inválido";
     }
 
-    if (!input.payDay) errors.payDay = "Dia de pago valido";
+    if (!input.payDay) errors.payDay = "Dia de pago";
     else {
       if (!/^(?:[1-9]|1\d|2[0-8])$/.test(input.payDay))
-        errors.payDay = "De día 1 a 28";
+        errors.payDay = "1 a 28";
     }
 
     return errors;
@@ -113,91 +125,77 @@ export function Register() {
   }
 
   return (
-    <div align="center">
-      <div className="Mesas-body">
-        <div className="Mesas-header">
-          <div className="Mesas-titulo">
-            Aplicación para <br></br> Restaurantes/Café
-          </div>
-        </div>
-        <Link to="/login">
-          <div className={stylesRegister.botonVolver}>Atras</div>
-        </Link>
-        <div className={stylesRegister.subtitulo1}>Registro de Usuarios</div>
-        <div className={stylesRegister.bloque}>
-          <form onSubmit={(e) => handleSubmit(e)}>
-            <div>
-              <label className={stylesRegister.nombreTexto}>Nombre: </label>
+    <div>
+
+<header 
+className= {`${stylesRegister.header} ${stylesRegister.fondoHeader} 
+${stylesRegister.tituloHeader} ${ stylesRegister.letraHeader}`}
+>Aplicación para <br/> Restaurantes/Cafe</header>
+
+<div className={stylesRegister.fondo}>
+    <div className={stylesRegister.grid1}>
+  <Link to="/"><div className={stylesRegister.atras}>Atras</div></Link>
+  <div className={stylesRegister.cartel}>Registro de Usuarios</div>
+
+  </div>
+  <form onSubmit={(e) => handleSubmit(e)}>
+  <div  className={stylesRegister.grid2}>
+ 
+              <label className={stylesRegister.Texto}>Nombre: </label>
               <input
-                className={stylesRegister.inputNombre}
+                className={`${stylesRegister.inputData} ${errors.firstName&&"error"}`}
                 type="text"
                 placeholder="Nombre.."
                 value={input.firstName}
                 name="firstName"
                 onChange={handleChange}
               />
-              {errors.firstName && (
-                <p className={stylesRegister.createValidFirstName}>
-                  {" "}
-                  {errors.firstName}{" "}
-                </p>
-              )}
-            </div>
+              <div className={stylesRegister.validacion}>
+              {errors.firstName }</div>
+<div></div>
 
-            <div>
-              <label className={stylesRegister.apellidoTexto}>Apellido: </label>
+              <label className={stylesRegister.Texto}>Apellido: </label>
               <input
-                className={stylesRegister.inputApellido}
+                className={stylesRegister.inputData}
                 type="text"
                 placeholder="Apellido.."
                 value={input.lastName}
                 name="lastName"
                 onChange={handleChange}
               />
-              {errors.lastName && (
-                <p className={stylesRegister.createValidLastName}>
-                  {" "}
-                  {errors.lastName}{" "}
-                </p>
-              )}
-            </div>
-            <div>
-              <label className={stylesRegister.dniTexto}>DNI: </label>
+                            <div className={stylesRegister.validacion}>
+              {errors.lastName }</div>
+<div></div>
+
+              <label className={stylesRegister.Texto}>DNI: </label>
               <input
-                className={stylesRegister.inputDni}
+                className={stylesRegister.inputData}
                 type="number"
                 placeholder="DNI.."
                 value={input.dni}
                 name="dni"
                 onChange={handleChange}
               />
-              {errors.dni && (
-                <p className={stylesRegister.createValidDni}> {errors.dni} </p>
-              )}
-            </div>
-            <div>
-              <label className={stylesRegister.direccionTexto}>
-                Direccion:{" "}
+            <div className={stylesRegister.validacion}>
+              {errors.dni }</div>
+<div></div>
+        <label className={stylesRegister.Texto}>
+                Direccion:
               </label>
               <input
-                className={stylesRegister.inputDireccion}
+                className={stylesRegister.inputData}
                 type="text"
                 placeholder="Direccion.."
                 value={input.address}
                 name="address"
                 onChange={handleChange}
               />
-              {errors.address && (
-                <p className={stylesRegister.createValidDireccion}>
-                  {" "}
-                  {errors.address}{" "}
-                </p>
-              )}
-            </div>
-            <div>
-              <label className={stylesRegister.usuarioTexto}>Usuario: </label>
+          <div className={stylesRegister.validacion}>
+              {errors.address }</div>
+<div></div>
+ <label className={stylesRegister.Texto}>Usuario: </label>
               <input
-                className={stylesRegister.inputUsuario}
+                className={stylesRegister.inputData}
                 type="text"
                 placeholder="usuario.."
                 value={input.username}
@@ -205,20 +203,14 @@ export function Register() {
                 onChange={handleChange}
               />
 
-              {errors.username && (
-                <p className={stylesRegister.createValidUsername}>
-                  {" "}
-                  {errors.username}{" "}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label className={stylesRegister.contraseñaTexto}>
-                Contraseña:{" "}
+     <div className={stylesRegister.validacion}>
+              {errors.username }</div>
+<div></div>
+  <label className={stylesRegister.Texto}>
+                Contraseña:
               </label>
               <input
-                className={stylesRegister.inputContraseña}
+                className={stylesRegister.inputData}
                 type="password"
                 placeholder="Contraseña..."
                 value={input.password}
@@ -226,20 +218,15 @@ export function Register() {
                 onChange={handleChange}
               />
 
-              {errors.password && (
-                <p className={stylesRegister.createValidPassword}>
-                  {" "}
-                  {errors.password}{" "}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label className={stylesRegister.FechaIngresoTexto}>
-                Fecha Ingreso:{" "}
+                   <div className={stylesRegister.validacion}>
+              {errors.password }</div>
+<div></div>
+ <label className={stylesRegister.Texto}>
+                Fecha Ingreso:
               </label>
+        
               <input
-                className={stylesRegister.inputFechaIngreso}
+                className={stylesRegister.inputData}
                 type="date"
                 placeholder="fecha Ingreso.."
                 value={input.inputDate}
@@ -247,43 +234,33 @@ export function Register() {
                 onChange={handleChange}
               />
 
-              {errors.inputDate && (
-                <p className={stylesRegister.createValidFechaIngreso}>
-                  {" "}
-                  {errors.inputDate}{" "}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label className={stylesRegister.DiaPagoTexto}>
-                Dia de pago:{" "}
+         <div className={stylesRegister.validacion}>
+              {errors.inputDate }</div>
+<div></div>
+  <label className={stylesRegister.Texto}>
+                Dia de pago:
               </label>
               <input
-                className={stylesRegister.inputDiaPago}
+                className={stylesRegister.inputData}
                 type="number"
                 placeholder="dia.."
                 value={input.payDay}
                 name="payDay"
                 onChange={handleChange}
               />
-              {errors.payDay && (
-                <p className={stylesRegister.createValidDiaPago}>
-                  {" "}
-                  {errors.payDay}{" "}
-                </p>
-              )}
+        
+      <div className={stylesRegister.validacion}>
+              {errors.payDay }</div>
+<div></div>
             </div>
-
-            <div
-              className={stylesRegister.botonRegister}
-              onClick={(e) => handleSubmit(e)}
-            >
-              Crear Usuario
-            </div>
-          </form>
+            <div className={stylesRegister.grid3}>
+              <button className={stylesRegister.botones}
+                type='submit'
+                onClick={(e) => handleSubmit(e)}
+              >Registrarse</button>
+                   </div>
+             </form>
         </div>
       </div>
-    </div>
-  );
+     );
 }

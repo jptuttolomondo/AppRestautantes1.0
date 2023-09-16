@@ -4,3 +4,6 @@ export function convertirTiempo(payload) {
     const tiempoTranscurridoFormateado = `${Math.floor(tiempoTranscurrido / 3600).toString().padStart(2, '0')}:${Math.floor((tiempoTranscurrido % 3600) / 60).toString().padStart(2, '0')}`;
       return tiempoTranscurridoFormateado
   }
+
+
+  
