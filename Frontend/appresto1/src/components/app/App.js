@@ -15,6 +15,7 @@ import {SalidasDiaria}from '../cajas/SalidasDiaria/Salidas.Diaria.js'
 import {TotalesDiaria}from '../cajas/TotalesDiaria/Totales.Diaria.js'
 import {ComandaDetail}from'../cocina/comanda.detail.js'
 import {Atendidas}from'../mesas/Mesas.atendidas.js'
+
 import '../styles/App.css'
 
 function App() {

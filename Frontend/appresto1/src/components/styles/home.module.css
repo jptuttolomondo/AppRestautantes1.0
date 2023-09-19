@@ -1,0 +1,31 @@
+.homeContainer{
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(8, 12vh);
+  height: 83vh;
+   width: 100%;
+  justify-items: stretch;
+  align-items: center;
+}
+
+.containerButtons {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1vmin;
+}
+
+  .landing-link {
+    color: #61dafb;
+  }
+
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .landing-logo {
+      animation: landing-logo-spin infinite 10s linear;
+    }
+  }
+  

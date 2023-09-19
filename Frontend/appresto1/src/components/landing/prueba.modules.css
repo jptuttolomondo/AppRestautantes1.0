@@ -1,9 +1,0 @@
-.land {
-    display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin: 0 auto;
-text-align: center;
-margin-bottom: 2rem; /* Añadimos un margen inferior para dar espacio al contenido debajo */
-}
