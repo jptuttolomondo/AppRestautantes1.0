@@ -1,0 +1,81 @@
+
+.empresa {
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 5vmin;
+    line-height: 1vmin;
+    width: 90%;
+    max-width: 90%;
+    max-height: 50%;
+    background: #E3E80D;
+    border: 1vmin solid #2D107E;
+    border-radius: 8vmin;
+    margin: 4% auto 0 auto;
+    text-align: center;
+    display: flex;
+     align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.itemContainer {
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1vmin;
+}
+
+a:-webkit-any-link {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a.ingresolink{
+    text-decoration: none;
+    color: white;
+    background-color: #0D64E8;
+    padding: 5vmin 30vmin;
+    border: 1vmin solid #2D107E;
+    border-radius: 5vmin;
+    font-family: 'Comic Sans MS';
+    line-height: 1vmin;
+    max-width: 61vmin;
+    max-height: 20vmin;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 9vmin auto 0 auto;
+}
+
+a.ingresolink:hover {
+    background-color: #0DE8A6;
+    color: white;
+    border: 1vmin solid #0DE8A6;
+}
+
+@media (max-width: 768px) {
+    .empresa {
+        font-size: 7vmin;
+        line-height: 2vmin;
+         width: 80%;
+    }
+
+    .tituloHeader {
+        font-size: 7vmin;
+          }
+
+    .ingresolink {
+        font-size: 5vmin;
+        line-height: 2vmin;
+        width: 70%;
+        max-height: 5vmin;
+    }
+
+
+}

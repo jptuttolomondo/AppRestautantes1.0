@@ -1,0 +1,279 @@
+.inputData {
+    height: 11vmin;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5vmin;
+    text-align: center;
+    background: linear-gradient(92.33deg, #C3EAEA 11.92%, rgba(151, 239, 234, 0.77) 83.97%);
+    border: 0.5vmin solid #2D107E;
+    border-radius: 5vmin;
+}
+
+.inputData::placeholder {
+    text-align: center;
+    color: blue;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5vmin;
+}
+.inputData[type="date"]::before {
+  /*  content: "fecha Ingreso.."; /* Texto del placeholder personalizado */
+    text-align: center;
+    color: blue;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 4vmin;
+  
+  }
+
+
+.inputData:focus {
+    border: 1.5vmin solid #1ccc42;
+    outline: none;
+}
+
+
+
+.botones {
+    grid-column: 3;
+    grid-row: 1;
+    width: 44vmin;
+    height: 16vmin;
+    left: calc(50% - 162px/2 + 62px);
+    bottom: 167px;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 7vmin;
+    line-height: 20px;
+    text-align: center;
+    background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+    border: 1vmin solid #2D107E;
+    border-radius: 4vmin;
+    display:flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.botones:hover {
+    background: #0DE8A6;
+    ;
+    color: var(--color-bg);
+}
+
+
+.grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(14, auto);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    height: 125vmin;
+}
+
+
+.grid2 .grid2.Texto,
+.grid2 .inputData {
+    width: 80%;
+}
+
+.grid3 {
+    display: grid;
+    grid-template-rows: repeat(1, auto);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    height: 23vmin;
+    align-items: end;
+    justify-content: center;
+
+}
+
+
+.grid3 .botones {
+    grid-column: 1 / 3;
+}
+
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.fondo {
+    background: linear-gradient(163.28deg, rgb(114 61 221 / 96%) 2.17%, rgba(219, 83, 255, 0.96) 96.14%);
+    border-radius: 1em;
+    height: 85vh;
+    width: 100%;
+}
+
+.grid1 {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: repeat(1, 1fr);
+    gap: 10px;
+
+}
+
+.fondoHeader {
+    width: 100%;
+    height: 4.5em;
+    background: conic-gradient(from 180deg at 50% 50%, #FF8A00 0deg, rgba(193, 64, 239, 0.96) 228.75deg, #FF8A00 360deg);
+    border-radius: 23px;
+}
+
+.tituloHeader {
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 5vmin;
+    line-height: 8vmin;
+    color: #000000;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.letraHeader {
+    font-size: 7vmin;
+}
+
+.atras {
+    width: 33vmin;
+    height: 22vmin;
+    font-family: 'Comic Sans MS';
+    color: #000000;
+    background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+    border: 1vmin solid #2D107E;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 5vmin;
+    line-height: 1vmin;
+    max-width: 90%;
+    max-height: 15vmin;
+    border-radius: 5vmin;
+    margin: 1em auto 0 auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.error{
+    color: red;
+  font-size: 3vmin;
+}
+.cartel {
+    display: flex;
+    width: 90%;
+    max-width: 80%;
+    height: 15vmin;
+    margin: 0 auto;
+    margin-top:auto;
+    background: linear-gradient(92.33deg, #29BC1C 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+    border: 4px solid #107E1B;
+    border-radius: 4vmin;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 5vmin;
+    line-height: 1;
+    text-align: center;
+    color: #000000;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.Texto {
+    display: flex;
+    height: 7vmin;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 100;
+    line-height: 1vmin;
+    font-size: 6vmin;
+    text-align: center;
+    color: #000000;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.validacion{
+    color: #08faf6;
+    display: flex;
+    font-size: 4vmin;
+    font-style: italic;
+    font-family: cursive;
+    height: 1vmin;
+    justify-content: flex-end;
+    flex-direction: column;
+ 
+    }
+
+@media (max-width: 768px) {
+    .letraHeader {
+        font-size: 7vmin;
+    }
+    .atras {
+        font-size: 6vmin;
+        width: 90%;
+        height: 16vmin;
+
+    }
+}
+@media (max-width: 768px) and (orientation: landscape) {
+    .letraHeader {
+      font-size: 3vmin; /* Reduce el tamaño de fuente en pantallas horizontales */
+    }
+    .atras {
+      font-size: 3vmin;
+      width: 90%;
+      height: 10vmin;
+    }
+    /* Ajustes para la orientación landscape */
+    .grid1 {
+      grid-template-columns: 1fr 2fr; /* Cambia la proporción de columnas */
+    
+    }
+    .grid2 {
+      grid-template-columns: 1fr 1fr; /* Mantiene la proporción de columnas */
+      grid-auto-rows: auto; /* Ajusta la altura automáticamente */
+      grid-row-gap: 10px; /* Agrega espacio entre filas*/
+      height: 40vmin;
+    }
+    .grid3 {
+        grid-template-rows: repeat(2, auto); /* Ajusta la cantidad de filas */
+        grid-row-gap: 10px; /* Agrega espacio entre filas */
+        height: 10vmin;
+    }
+    .botones {
+        width: 40vmin;
+        height: 7vmin;
+        font-size: 5vmin;
+    }
+    .Texto {
+      font-size: 4vmin; /* Reduce el tamaño de fuente del texto */
+    }
+    /* ... Otros ajustes de tamaño de fuente y diseño ... */
+  }
+
+

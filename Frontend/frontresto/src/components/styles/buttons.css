@@ -1,0 +1,47 @@
+.landingPage-ingreso-link {
+    text-decoration: none;
+    color: white;
+    background-color: #0D64E8;
+    padding: 10px 20px; /* Ajusta el padding según tus preferencias */
+    border: 2px solid #2D107E;
+    border-radius: 2rem;
+    font-weight: 700;
+    font-size: 5vmin;
+    line-height: 1vmin;
+;
+
+  
+    max-width: 9em;
+    max-height: 4em;
+    width: 13em;
+    text-align: center;
+    display: flex; /* Usamos flexbox */
+    align-items: center; /* Centramos verticalmente */
+    justify-content: center; /* Centramos horizontalmente */
+    box-sizing: border-box;
+}
+a.landingPage-ingreso-link {
+    text-decoration: none;
+    color: white;
+    background-color: #0D64E8;
+    padding: 10px 20px;
+    border: 0.4rem solid #2D107E;
+    border-radius: 2rem;
+    font-family:  'Comic Sans MS'; /* Cambia la fuente a Arial o la que prefieras */
+    font-weight: 700;
+    font-size: 5vmin;
+    line-height: 1vmin;
+    max-width: 12em;
+    max-height: 4em;
+    text-align: center;
+    display: flex; /* Usamos flexbox */
+    align-items: center; /* Centramos verticalmente */
+    justify-content: center; /* Centramos horizontalmente */
+    box-sizing: border-box;
+    margin: 0 auto; /* Centramos horizontalmente dentro de su contenedor */
+}
+a.landingPage-ingreso-link:hover {
+    background-color: #0DE8A6; /* Cambia el color de fondo en el hover */
+    color: white; /* Cambia el color de texto en el hover */
+    border: 2px solid #0DE8A6; /* Cambia el color del borde en el hover */
+}

@@ -1,0 +1,7 @@
+
+a:-webkit-any-link {
+
+color:black;
+  cursor: pointer;
+  text-decoration: none;
+}

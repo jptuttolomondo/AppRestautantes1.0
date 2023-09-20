@@ -1,0 +1,260 @@
+
+.cajasContainer{
+
+    display: grid;
+    flex: 1;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(7, 12vh);
+    height: 83vh;
+     width: 100%;
+    justify-items: stretch;
+    align-items: center;
+  
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+.Mesas-body {
+    text-align: center;
+    position:relative;
+    width: 360px;
+    height: 640px;
+
+    
+    background: linear-gradient(163.28deg, rgba(206, 225, 236, 0.96) 2.17%, rgba(219, 83, 255, 0.96) 96.14%);
+    border-radius: 24px;
+  }
+  .Mesas-titulo{
+    position: absolute;
+  left: -18.88%;
+  right: -18.37%;
+  top: 2%;
+  bottom: -340%;
+  
+  font-family: 'Comic Sans MS';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  text-align: center;
+  letter-spacing: 0.055em;
+  color: #000000;
+  /*display: block;*/
+  }
+  .caja_subtitulo{
+   
+    position: absolute;
+    width: 130px;
+    height: 42px;
+    left: 113px;
+    top: 104px;
+    
+    background: linear-gradient(92.33deg, #29BC1C 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+    border: 4px solid #107E1B;
+    border-radius: 23px;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 35px;
+    /* identical to box height */
+    
+    text-align: center;
+    
+    color: #000000;
+    
+    }
+  
+  
+  .FechaLetraDiaria{
+    position: absolute;
+  width: 49px;
+  height: 22px;
+  left: 63px;
+  top: 166px;
+  
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  
+  color: #000000;
+  
+  }
+
+
+.EntradasDiaria{
+  
+position: absolute;
+width: 172px;
+height: 42px;
+left: 30px;
+top: 315px;
+background: linear-gradient(92.33deg, #0D64E8 11.92%, rgba(28, 188, 178, 0.77) 83.97%);
+border: 4px solid #2D107E;
+border-radius: 23px;
+font-family: 'Comic Sans MS';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 28px;
+text-align: center;
+color: #000000;
+}
+  .EntradasDiaria:hover{
+    background: #0DE8A6;;
+    color: var(--color-bg);
+  
+  }
+
+  .Mesas-hora{
+    position: absolute;
+  width: 42px;
+  height: 22px;
+  left: 149px;
+  top: 160px;
+  
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  
+  color: #000000;
+  }
+  .CajaInicial{
+    position: absolute;
+    width: 129px;
+    height: 22px;
+    left: 60px;
+    top: 241px;
+    font-family: 'Comic Sans MS';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 22px;
+    color: #000000;
+}
+  
+
+
+  .Mesas-atras{
+     position: absolute;
+width: 38px;
+height: 35px;
+left: 12px;
+top: 111px;
+
+background: #427C9D;
+  }
+ 
+  /*.EntradasDiaria{
+    position: absolute;
+background: #427C9D;
+width: 121px;
+height: 40px;
+left: 55px;
+top: 331px;
+ }
+*/
+ .SalidasDiaria{
+  position: absolute;
+  width: 121px;
+  height: 40px;
+  left: 55px;
+  top: 437px;
+
+background: #427C9D;
+}
+.TotalesDiaria{
+  position: absolute;
+  width: 121px;
+  height: 40px;
+  left: 55px;
+  top: 538px;
+
+background: #427C9D;
+}
+
+.DescargarInforme{
+  position: absolute;
+  width: 121px;
+  height: 40px;
+  left: 190px;
+  top: 583px;
+background: #427C9D;
+}
+
+.inputFechaCaja {
+  position: absolute;
+  width: 122px;
+  height: 28px;
+  left: calc(50% - 75px/2 + 62px);
+  top:160px;
+  bottom: 132px;
+
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  /* identical to box height */
+
+  text-align: center;
+
+  background: linear-gradient(92.33deg, #C3EAEA 11.92%, rgba(151, 239, 234, 0.77) 83.97%);
+  border: 4px solid #2D107E;
+  border-radius: 23px;
+}
+
+.inputFechaCaja::placeholder {
+  text-align: center;
+  color: blue;
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.inputFechaCaja:focus {
+  border: 7px solid #1ccc42;
+  outline: none;
+}
+
+  .Mesas-header {
+  
+  width: 360px;
+  height: 97px;
+  
+  background: conic-gradient(from 180deg at 50% 50%, #FF8A00 0deg, rgba(193, 64, 239, 0.96) 228.75deg, #FF8A00 360deg);
+  border-radius: 23px;
+  
+  /* Inside auto layout */
+  
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  position:flex;
+  
+  }
+  
+  .Mesas-link {
+    color: #61dafb;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .Mesas-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
