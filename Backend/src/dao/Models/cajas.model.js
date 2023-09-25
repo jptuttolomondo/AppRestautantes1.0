@@ -1,8 +1,8 @@
 import {mongoose} from "mongoose";
-const {schema}=mongoose
+const {Schema}=mongoose
 const CajaCollections = "Cajas";
-const CajaSchema= new schema({
-    date: { type: Date, required: true },
+const CajaSchema= new Schema({
+   
     montoInicial: { type: Number, required: true},
     totalEntradas: { type: Number, required: true},
     totalSalidas: { type: Number, required: true},
@@ -24,8 +24,11 @@ entradasCaja: {
 ],
 default: [],
 },
+user:{type:mongoose.Types.ObjectId,ref:'users'},
 
-})
+},
+{ timestamps: true },
+)
 
 
 CajaSchema.pre("save", async function (next) {

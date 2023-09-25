@@ -1,10 +1,10 @@
 import {mongoose} from "mongoose";
-const {schema}=mongoose
+const {Schema}=mongoose
 const SalidaCollections = "Salidas";
-const SalidaSchema= new schema({
-date: { type: Date, required: true },
+const SalidaSchema= new Schema({
+
 monto: { type: Number, required: true},
-description:{Type: String, required: true},
+description:{type: String, required: true},
 createdAt: {type: Date,default: Date.now}
 
 })

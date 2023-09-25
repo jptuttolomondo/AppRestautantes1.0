@@ -39,26 +39,7 @@ export default class ComandasDao {
     return result;
   };
 
-//   createComanda = async (comanda) => {
-//         const comandaCreated = await comandaModel.create(comanda);
-//        const itemsGuardados=await itemModel.insertMany(comanda.items)  
-//  comandaCreated.items = itemsGuardados.map(e => ({item: e._id}));
-// await comandaModel.updateOne({_id:comandaCreated._id},comanda)
-//   const result=await comandaCreated.save()
-//  const finder=await comandaModel.findById(comandaCreated._id)
-//  .populate({
-//    path: "items.item",
-//    populate: {
-//      path: "producto", 
-//      model: "products", 
-//    },
-//  })
-//  .exec();
-//  console.log(JSON.stringify(finder, null, '\t'));
 
-//         return result;
-
-//   };
 createComanda = async (comanda) => {
   const comandaCreated = await comandaModel.create(comanda);
   const itemsGuardados = await itemModel.insertMany(comanda.items);
@@ -78,7 +59,7 @@ createComanda = async (comanda) => {
 };
 
   putComanda = async (id, comanda) => {
-    //console.log(id,comanda)
+  
     const result = await comandaModel.findOneAndUpdate({ _id: id},  comanda);
     return result;
   };

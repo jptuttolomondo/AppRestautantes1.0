@@ -7,9 +7,11 @@ import routerComandas from "./routes/routes.comandas.js";
 import routerProducts from "./routes/routes.products.js";
  import routerItems from "./routes/routes.items.js";
 import routerMesas from "./routes/routes.mesas.js";
-// import routerCookies from "./routes/routes.cookies.js";
+
  import routerSessions from "./routes/routes.sessions.js";
-//import routerRegister from './routes/routes.register.js'
+ import routerSalidas from "./routes/routes.salidas.js"
+ import routerCajas from "./routes/routes.cajas.js"
+ 
 const { PORT } = process.env;
 const app = express();
 app.use(express.json());
@@ -22,23 +24,15 @@ app.use("/", routerProducts);
 app.use("/", routerItems);
 app.use("/", routerMesas);
 app.use("/", routerSessions);
-// app.use("/", routerCookies);
-//router.use("/",routerRegister)
+app.use("/", routerSalidas);
+app.use("/", routerCajas);
+
 
 app.listen(PORT, () => {
   console.log(`server connected at ${PORT}`);
 });
 
 
-// app.use(session({
-//     store:MongoStore.create({
-//         client:mongoose.connection.getClient(),
-//         ttl:3600
-//     }),
-//     secret:'Goring2311*',
-//     resave:true,
-//     saveUninitialized:true
-// }))
 
 
 
